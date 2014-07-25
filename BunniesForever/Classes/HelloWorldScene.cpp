@@ -45,7 +45,7 @@ bool HelloWorld::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Click2.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Win.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Lose.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("BonusGet.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("coin3.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("AchievementGet.mp3");
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("hero.plist");

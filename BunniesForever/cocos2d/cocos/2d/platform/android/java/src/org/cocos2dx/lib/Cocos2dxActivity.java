@@ -51,6 +51,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
 	private Cocos2dxHandler mHandler;
 	private static Context sContext = null;
 	
+	protected FrameLayout mFramelayout=null;
+	
 	public static Context getContext() {
 		return sContext;
 	}
@@ -140,7 +142,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
                                        ViewGroup.LayoutParams.MATCH_PARENT);
         FrameLayout framelayout = new FrameLayout(this);
         framelayout.setLayoutParams(framelayout_params);
-
+        mFramelayout=framelayout;
         // Cocos2dxEditText layout
         ViewGroup.LayoutParams edittext_layout_params =
             new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

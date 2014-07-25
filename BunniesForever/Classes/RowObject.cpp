@@ -65,7 +65,7 @@ public:
     int type(){return 1;}
     bool activated(Character* char1)
     {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("BonusGet.mp3");
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("coin3.wav");
         
         if (IngameScene::getInstance()!=0)
             IngameScene::getInstance()->addScore(1);

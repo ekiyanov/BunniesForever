@@ -12,6 +12,7 @@
 #include "MenuPause.h"
 #include "Profile.h"
 #include "PlatformParams.h"
+#include "SimpleAudioEngine.h"
 
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
 #include "hellocpp/AndroidJNI.h"
@@ -216,6 +217,8 @@ bool IngameScene::init()
                                                    callfuncO_selector(IngameScene::onRestartGame), "onRestart",
                                                    0);
     
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("");
     
     return true;
 }

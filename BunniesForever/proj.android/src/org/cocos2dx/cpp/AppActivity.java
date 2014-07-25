@@ -40,6 +40,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
@@ -116,11 +117,25 @@ AdRequest adRequest = new AdRequest.Builder()
 .addTestDevice("HASH_DEVICE_ID")
 .build();
 
-adView.loadAd(adRequest);
+RelativeLayout relativeLayout=new RelativeLayout(this);
+
+	mFramelayout.addView(relativeLayout);
+
+
+RelativeLayout.LayoutParams adViewParams = new RelativeLayout.LayoutParams(
+	    AdView.LayoutParams.WRAP_CONTENT,
+	    AdView.LayoutParams.WRAP_CONTENT);
+	//important
+	adViewParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+
+
+relativeLayout.addView(adView, adViewParams);
+
+
+			adView.loadAd(adRequest);
             adView.setBackgroundColor(Color.BLACK);
             adView.setBackgroundColor(0);
-            addContentView(adView,adParams);
-
+            
             me = this;
             
             adView.setVisibility(View.VISIBLE);
