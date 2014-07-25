@@ -47,7 +47,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
 #else
-    searchpath.push_back("android");
+    glview->setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
+    searchpath.push_back("iphonehd");
 #endif
     
     searchpath.push_back("shared");
