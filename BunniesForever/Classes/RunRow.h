@@ -22,6 +22,7 @@ class RunRow : public Layer
     
     float           _nextGeneration;
     
+    bool            _paused;
 public:
     bool init(const Color3B & color);
     
@@ -36,5 +37,7 @@ public:
     void updateGeneration(float dt);
     
     void killAllObjects();
+    
+    void setPaused(bool paused);
 };
 #endif /* defined(__BunniesForever__RunRow__) */

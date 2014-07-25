@@ -18,10 +18,14 @@ class Character;
 class RowObject: public Node
 {
     int _type;
+    
+    bool _paused;
 public:
     virtual bool init();
     
     virtual int type();
+    
+    void setPaused(bool state){_paused=state;}
     
     virtual void setType(int type);
     virtual bool activated(Character*){};

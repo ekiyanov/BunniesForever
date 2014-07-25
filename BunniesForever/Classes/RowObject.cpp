@@ -16,11 +16,14 @@ bool RowObject::init()
 {
     setContentSize(Size(60,60));
     scheduleUpdate();
+    _paused=false;
     return true;
 }
 
 void RowObject::update(float dt)
 {
+    if (_paused)return;
+    
     setPositionX(getPositionX()+IngameScene::getInstance()->runSpeed()*dt);
     
     if (getPositionX()+getContentSize().width<0)

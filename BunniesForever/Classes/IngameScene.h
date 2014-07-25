@@ -19,6 +19,9 @@ class IngameScene : public Layer
     int _score;
     
     Vector<RunRow*>   _rows;
+    
+    Node* _PauseMenu;
+    Node* _GameoverMenu;
 public:
     static Scene* scene();
     static IngameScene* getInstance();
@@ -30,5 +33,10 @@ public:
     void addRow(const Color3B& color);
     
     bool CanSpawnRows();
+    
+    void onGameOver(Ref* );
+    void onTapPause(Ref* );
+    void onRestartGame(Ref*);
+    void onResumeGame(Ref*);
 };
 #endif /* defined(__BunniesForever__IngameScene__) */

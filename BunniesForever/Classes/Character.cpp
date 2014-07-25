@@ -64,16 +64,17 @@ void Character::Jump()
 bool Character::onCollideWithObject(RowObject* rowObject)
 {
     return     rowObject->activated(this);
-    
-
 }
 
 void Character::doDamage(int damage)
 {
     if (damage>0)
     {
+        NotificationCenter::getInstance()->postNotification("onGameover");
+        return;
         if (_blinkAction)
             stopAction(_blinkAction);
+        
         _blinkAction=Sequence::create(
                                       Blink::create(3, 9),
                                       FadeIn::create(0.1),

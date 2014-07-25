@@ -8,6 +8,8 @@
 
 #include "IngameScene.h"
 #include "RunRow.h"
+#include "MenuGameover.h"
+#include "MenuPause.h"
 
 static IngameScene* __instance = 0;
 
@@ -64,7 +66,11 @@ void IngameScene::addRow(const Color3B& color)
 
 bool IngameScene::CanSpawnRows()
 {
-    return _score>=(pow(2,_rows.size()));
+    if (_rows.size()<4){
+        return _score>=(pow(2,_rows.size()));
+    }
+    
+    return false;
 }
 
 void IngameScene::draw(Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
@@ -76,13 +82,47 @@ void IngameScene::draw(Renderer* renderer, const kmMat4 &transform, bool transfo
                                   Color4F::WHITE);
 }
 
+void IngameScene::onGameOver(cocos2d::Ref *)
+{
+    for (auto r : _rows)
+    {
+        r->setPaused(true);
+    }
+    
+    if (_GameoverMenu==0)
+    {
+        MenuGameover* gomenu=new MenuGameover();
+        gomenu->init();
+        _GameoverMenu=gomenu;
+    }
+    
+    addChild(_GameoverMenu);
+}
+
+void IngameScene::onTapPause(cocos2d::Ref *)
+{
+    for (auto r : _rows)
+    {
+        r->setPaused(true);
+    }
+    
+    if (_PauseMenu==0)
+    {
+        MenuPause* gomenu=new MenuPause();
+        gomenu->init();
+        _PauseMenu=gomenu;
+    }
+    
+    addChild(_PauseMenu);
+}
+
 bool IngameScene::init()
 {
     
     Layer::init();
 
     RunRow* r = new RunRow();
-    r->init(Color::RED);
+    r->init(Color3B::RED);
     r->autorelease();
     addChild(r);
     r->setPosition(Point(0,getContentSize().height/2-r->getContentSize().height/2));
@@ -90,8 +130,8 @@ bool IngameScene::init()
     _rows.pushBack(r);
     
     MenuItemLabel* pausebtn=    MenuItemLabel::create(Sprite::create("PauseBtn.png"),
-                          [](Ref*){
-                             // pause menu
+                          [this](Ref*){
+                              onTapPause(0);
                           });
     
     Menu* menu = Menu::create();
@@ -110,8 +150,41 @@ bool IngameScene::init()
     
     addChild(menu);
     
+    NotificationCenter::getInstance()->addObserver(this,
+                                                   callfuncO_selector(IngameScene::onGameOver), "onGameover",
+                                                   0);
+    NotificationCenter::getInstance()->addObserver(this,
+                                                   callfuncO_selector(IngameScene::onResumeGame), "onResume",
+                                                   0);
+    NotificationCenter::getInstance()->addObserver(this,
+                                                   callfuncO_selector(IngameScene::onRestartGame), "onRestart",
+                                                   0);
+    
     
     return true;
+}
+
+void IngameScene::onRestartGame(Ref*)
+{
+    for ( auto it : _rows)
+        it->removeFromParentAndCleanup(true);
+    _rows.clear();
+    
+    if (_GameoverMenu)
+        _GameoverMenu->removeFromParentAndCleanup(true);
+    
+    _score=0;
+    
+    addRow(Color3B::RED);
+}
+
+void IngameScene::onResumeGame(cocos2d::Ref *)
+{
+    for (auto it : _rows)
+        it->setPaused(false);
+    
+    if (_PauseMenu)
+        _PauseMenu->removeFromParentAndCleanup(true);
 }
 
 void IngameScene::addScore(int score)

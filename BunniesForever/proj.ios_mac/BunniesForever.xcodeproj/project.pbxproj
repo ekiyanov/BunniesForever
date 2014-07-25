@@ -54,6 +54,10 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		5818E734198231B9001C2D9A /* MenuPause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E732198231B9001C2D9A /* MenuPause.cpp */; };
+		5818E735198231B9001C2D9A /* MenuPause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E732198231B9001C2D9A /* MenuPause.cpp */; };
+		5818E73A198231C5001C2D9A /* MenuGameover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E738198231C5001C2D9A /* MenuGameover.cpp */; };
+		5818E73B198231C5001C2D9A /* MenuGameover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E738198231C5001C2D9A /* MenuGameover.cpp */; };
 		583B5773198211B500AE20B9 /* RowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5771198211B500AE20B9 /* RowObject.cpp */; };
 		583B5776198211BA00AE20B9 /* RowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5771198211B500AE20B9 /* RowObject.cpp */; };
 		583B5779198217C800AE20B9 /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5777198217C800AE20B9 /* ObjectFactory.cpp */; };
@@ -294,6 +298,10 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		5818E732198231B9001C2D9A /* MenuPause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuPause.cpp; path = ../Classes/MenuPause.cpp; sourceTree = "<group>"; };
+		5818E733198231B9001C2D9A /* MenuPause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPause.h; path = ../Classes/MenuPause.h; sourceTree = "<group>"; };
+		5818E738198231C5001C2D9A /* MenuGameover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuGameover.cpp; path = ../Classes/MenuGameover.cpp; sourceTree = "<group>"; };
+		5818E739198231C5001C2D9A /* MenuGameover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuGameover.h; path = ../Classes/MenuGameover.h; sourceTree = "<group>"; };
 		583B5771198211B500AE20B9 /* RowObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RowObject.cpp; path = ../Classes/RowObject.cpp; sourceTree = "<group>"; };
 		583B5772198211B500AE20B9 /* RowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowObject.h; path = ../Classes/RowObject.h; sourceTree = "<group>"; };
 		583B5777198217C800AE20B9 /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectFactory.cpp; path = ../Classes/ObjectFactory.cpp; sourceTree = "<group>"; };
@@ -571,6 +579,10 @@
 				583B5772198211B500AE20B9 /* RowObject.h */,
 				583B5777198217C800AE20B9 /* ObjectFactory.cpp */,
 				583B5778198217C800AE20B9 /* ObjectFactory.h */,
+				5818E732198231B9001C2D9A /* MenuPause.cpp */,
+				5818E733198231B9001C2D9A /* MenuPause.h */,
+				5818E738198231C5001C2D9A /* MenuGameover.cpp */,
+				5818E739198231C5001C2D9A /* MenuGameover.h */,
 			);
 			name = Ingame;
 			sourceTree = "<group>";
@@ -863,6 +875,7 @@
 				58849B3D19820807006A5346 /* Character.cpp in Sources */,
 				589F772D190CE33700A3E8D9 /* Factory.cpp in Sources */,
 				589F7776190CE38200A3E8D9 /* json_value.cpp in Sources */,
+				5818E73A198231C5001C2D9A /* MenuGameover.cpp in Sources */,
 				589F7774190CE38200A3E8D9 /* json_reader.cpp in Sources */,
 				58F3943B195721730022C478 /* Profile.cpp in Sources */,
 				589F7757190CE37000A3E8D9 /* micropather.cpp in Sources */,
@@ -873,6 +886,7 @@
 				583B5779198217C800AE20B9 /* ObjectFactory.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				589F776E190CE38200A3E8D9 /* CSContentJsonDictionary.cpp in Sources */,
+				5818E734198231B9001C2D9A /* MenuPause.cpp in Sources */,
 				589F772B190CE33700A3E8D9 /* Explode.cpp in Sources */,
 				589F777A190CE38200A3E8D9 /* json_writer.cpp in Sources */,
 				583B5773198211B500AE20B9 /* RowObject.cpp in Sources */,
@@ -893,7 +907,9 @@
 				589F7736190CE33700A3E8D9 /* HelloWorldScene.cpp in Sources */,
 				589F7777190CE38200A3E8D9 /* json_value.cpp in Sources */,
 				583B577A198217C800AE20B9 /* ObjectFactory.cpp in Sources */,
+				5818E735198231B9001C2D9A /* MenuPause.cpp in Sources */,
 				589F772E190CE33700A3E8D9 /* Factory.cpp in Sources */,
+				5818E73B198231C5001C2D9A /* MenuGameover.cpp in Sources */,
 				589F772C190CE33700A3E8D9 /* Explode.cpp in Sources */,
 				58849B3A198206B4006A5346 /* IngameScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

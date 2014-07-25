@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+using namespace cocos2d;
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -14,6 +15,15 @@ public:
     
     // implement the "static node()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    void draw(cocos2d::Renderer *renderer, const kmMat4 &transform, bool transformUpdated)
+    {
+        renderer->render();
+        
+        cocos2d::DrawPrimitives::drawSolidRect(cocos2d::Point(0,0),cocos2d::Point(getContentSize().width,
+                                                                                  getContentSize().height),
+                                               Color4F(1,1,1,1));
+    }
 };
 
 #endif // __HELLOWORLD_SCENE_H__

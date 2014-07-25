@@ -24,9 +24,11 @@ void RunRow::draw(Renderer *renderer, const kmMat4 &transform, bool transformUpd
 
 bool RunRow::init(const Color3B& color)
 {
-    setContentSize(Size(Director::getInstance()->getWinSize().width,300));
+    setContentSize(Size(Director::getInstance()->getWinSize().width,200));
     setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
     setTouchEnabled(true);
+    
+    _paused=false;
     
     pCharacter = Character::CharacterWithColor(color);
     
@@ -62,6 +64,7 @@ bool RunRow::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 
 void RunRow::update(float dt)
 {
+    if (_paused) return;
     updateCollision();
     
     updateGeneration(dt);
@@ -85,6 +88,13 @@ void RunRow::updateGeneration(float dt)
         
         addChild(rowObject);
     }
+}
+
+void RunRow::setPaused(bool state)
+{
+    _paused=state;
+    for ( auto it : _rowObjects)
+        it->setPaused(_paused);
 }
 
 void RunRow::updateCollision()
