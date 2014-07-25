@@ -42,7 +42,7 @@ IngameScene* IngameScene::getInstance()
 
 float IngameScene::runSpeed()
 {
-    return -500;
+    return -_runspeed;
 }
 
 void IngameScene::addRow(const Color3B& color)
@@ -125,6 +125,8 @@ void IngameScene::onGameOver(cocos2d::Ref *)
     
     addChild(_GameoverMenu);
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     showAdmobJNI();
 #endif
@@ -177,7 +179,6 @@ bool IngameScene::init()
     r->autorelease();
     addChild(r);
     r->setPosition(Point(0,getContentSize().height/2-r->getContentSize().height/2));
-    
     _rows.pushBack(r);
     
     r->setReadySetGo(true);
@@ -218,7 +219,9 @@ bool IngameScene::init()
                                                    0);
     
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("ingame2.mp3");
+    
+    _runspeed = PPIntForKey("runspeed");
     
     return true;
 }
@@ -239,6 +242,8 @@ void IngameScene::onRestartGame(Ref*)
     _scoreLabel->setString("0");
     
     addRow(Color3B::RED);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("ingame2.mp3");
+    
     
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     hideAdmobJNI();

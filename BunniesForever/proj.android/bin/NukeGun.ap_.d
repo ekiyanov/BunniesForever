@@ -120,6 +120,7 @@
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Click1.wav \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Click2.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Click2.wav \
+/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/coin3.wav \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Combo1.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Combo1.wav \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Combo2.mp3 \
@@ -137,6 +138,7 @@
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/GaussgunShot.wav \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/IcegunShot.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/IcegunShot.wav \
+/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/ingame2.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/Intro.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/LargeVehicleExplosion1.mp3 \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/sounds/LargeVehicleExplosion1.wav \

@@ -22,6 +22,8 @@ class IngameScene : public Layer
     
     Node* _PauseMenu;
     Node* _GameoverMenu;
+    
+    float _runspeed;
 public:
     static Scene* scene();
     static IngameScene* getInstance();
