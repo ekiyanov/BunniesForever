@@ -11,23 +11,23 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  jni/../../cocos2d/cocos/2d/ccConfig.h \
  jni/../../cocos2d/cocos/base/CCPlatformConfig.h \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/android/log.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/log.h \
  jni/../../cocos2d/cocos/base/CCGeometry.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/math.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/math.h \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/functional \
  jni/../../cocos2d/cocos/2d/ccMacros.h \
  jni/../../cocos2d/cocos/base/CCConsole.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/sys/select.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/select.h \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/mutex \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/../cocos2d/cocos/2d/platform/android/CCStdC.h \
  jni/../../cocos2d/cocos/base/CCPlatformMacros.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/stdlib.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/alloca.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/strings.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/memory.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/stdlib.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/alloca.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/strings.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/memory.h \
  jni/../../cocos2d/cocos/2d/CCActionInterval.h \
  jni/../../cocos2d/cocos/2d/CCNode.h \
  jni/../../cocos2d/cocos/2d/ccMacros.h \
@@ -37,7 +37,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  jni/../../cocos2d/cocos/math/kazmath/kazmath/vec2.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/utility.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/vec3.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/assert.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/assert.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/vec4.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/mat3.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/mat4.h \
@@ -47,10 +47,10 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  jni/../../cocos2d/cocos/math/kazmath/kazmath/ray2.h \
  jni/../../cocos2d/cocos/math/kazmath/kazmath/ray3.h \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/../cocos2d/cocos/2d/platform/android/CCGL.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2platform.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/KHR/khrplatform.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2ext.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2platform.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/KHR/khrplatform.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h \
  jni/../../cocos2d/cocos/2d/ccGLStateCache.h \
  jni/../../cocos2d/cocos/2d/CCGLProgram.h \
  /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/set \
@@ -201,7 +201,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  jni/../../cocos2d/cocos/2d/CCEventListenerCustom.h \
  jni/../../cocos2d/cocos/2d/CCScheduler.h \
  jni/../../cocos2d/cocos/2d/uthash.h \
- /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/inttypes.h \
+ /Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/inttypes.h \
  jni/../../cocos2d/cocos/2d/CCComponent.h \
  jni/../../cocos2d/cocos/2d/CCComponentContainer.h \
  jni/../../cocos2d/cocos/deprecated/CCDictionary.h \
@@ -286,11 +286,11 @@ jni/../../cocos2d/cocos/base/CCPlatformConfig.h:
 
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/android/log.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/log.h:
 
 jni/../../cocos2d/cocos/base/CCGeometry.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/math.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/math.h:
 
 /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/functional:
 
@@ -298,7 +298,7 @@ jni/../../cocos2d/cocos/2d/ccMacros.h:
 
 jni/../../cocos2d/cocos/base/CCConsole.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/sys/select.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/select.h:
 
 /Users/EKiyanov/NVPACK/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread:
 
@@ -312,13 +312,13 @@ jni/../../cocos2d/cocos/base/CCConsole.h:
 
 jni/../../cocos2d/cocos/base/CCPlatformMacros.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/stdlib.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/stdlib.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/alloca.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/alloca.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/strings.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/strings.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/memory.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/memory.h:
 
 jni/../../cocos2d/cocos/2d/CCActionInterval.h:
 
@@ -338,7 +338,7 @@ jni/../../cocos2d/cocos/math/kazmath/kazmath/utility.h:
 
 jni/../../cocos2d/cocos/math/kazmath/kazmath/vec3.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/assert.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/assert.h:
 
 jni/../../cocos2d/cocos/math/kazmath/kazmath/vec4.h:
 
@@ -358,13 +358,13 @@ jni/../../cocos2d/cocos/math/kazmath/kazmath/ray3.h:
 
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/../cocos2d/cocos/2d/platform/android/CCGL.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2platform.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2platform.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/KHR/khrplatform.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/KHR/khrplatform.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/GLES2/gl2ext.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h:
 
 jni/../../cocos2d/cocos/2d/ccGLStateCache.h:
 
@@ -668,7 +668,7 @@ jni/../../cocos2d/cocos/2d/CCScheduler.h:
 
 jni/../../cocos2d/cocos/2d/uthash.h:
 
-/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-15/arch-arm/usr/include/inttypes.h:
+/Users/EKiyanov/NVPACK/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/inttypes.h:
 
 jni/../../cocos2d/cocos/2d/CCComponent.h:
 

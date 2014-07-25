@@ -73,6 +73,7 @@
 		5858E1731982A95E000AE167 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1721982A95E000AE167 /* SystemConfiguration.framework */; };
 		5858E1761982AC6A000AE167 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1751982AC6A000AE167 /* iAd.framework */; };
 		5858E1781982ADD6000AE167 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1771982ADD6000AE167 /* CoreTelephony.framework */; };
+		5858E17C1982FC17000AE167 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E17B1982FC17000AE167 /* Social.framework */; };
 		58849B3319820689006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
 		58849B39198206A7006A5346 /* RunRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B37198206A7006A5346 /* RunRow.cpp */; };
 		58849B3A198206B4006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
@@ -340,6 +341,7 @@
 		5858E1741982AB87000AE167 /* iOSNative.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iOSNative.h; path = ios/iOSNative.h; sourceTree = SOURCE_ROOT; };
 		5858E1751982AC6A000AE167 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
 		5858E1771982ADD6000AE167 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		5858E17B1982FC17000AE167 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
 		58849B3119820689006A5346 /* IngameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IngameScene.cpp; path = ../Classes/IngameScene.cpp; sourceTree = "<group>"; };
 		58849B3219820689006A5346 /* IngameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngameScene.h; path = ../Classes/IngameScene.h; sourceTree = "<group>"; };
 		58849B37198206A7006A5346 /* RunRow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RunRow.cpp; path = ../Classes/RunRow.cpp; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5858E17C1982FC17000AE167 /* Social.framework in Frameworks */,
 				5858E1781982ADD6000AE167 /* CoreTelephony.framework in Frameworks */,
 				5858E1761982AC6A000AE167 /* iAd.framework in Frameworks */,
 				5858E1731982A95E000AE167 /* SystemConfiguration.framework in Frameworks */,
@@ -546,6 +549,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5858E17B1982FC17000AE167 /* Social.framework */,
 				5858E1771982ADD6000AE167 /* CoreTelephony.framework */,
 				5858E1751982AC6A000AE167 /* iAd.framework */,
 				5858E1721982A95E000AE167 /* SystemConfiguration.framework */,

@@ -59,6 +59,7 @@ void shareFBText(std::string text)
     SLComposeViewController* composer=[SLComposeViewController
                                        composeViewControllerForServiceType:SLServiceTypeFacebook];
     [composer setInitialText:[NSString stringWithUTF8String:text.c_str()]];
+    [composer addURL:[NSURL URLWithString:@"http://google.com"]];
     [rootvc presentViewController:composer animated:YES completion:^{
         ;
     }];
