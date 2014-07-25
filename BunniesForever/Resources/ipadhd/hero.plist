@@ -16,13 +16,13 @@
 			<key>spriteOffset</key>
 			<string>{0, -0}</string>
 			<key>spriteSize</key>
-			<string>{159, 194}</string>
+			<string>{157, 192}</string>
 			<key>spriteSourceSize</key>
 			<string>{165, 192}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1, 1}, {159, 194}}</string>
+			<string>{{0, 0}, {157, 192}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{23, 226}, {14, 27}}</string>
+			<string>{{58, 353}, {14, 27}}</string>
 			<key>textureRotated</key>
 			<true/>
 		</dict>
@@ -66,9 +66,9 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{480, 1}, {157, 192}}</string>
+			<string>{{0, 194}, {192, 157}}</string>
 			<key>textureRotated</key>
-			<false/>
+			<true/>
 		</dict>
 		
 		<key>hero1_1.png</key>
@@ -88,9 +88,9 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1, 197}, {26, 27}}</string>
+			<string>{{0, 353}, {27, 26}}</string>
 			<key>textureRotated</key>
-			<true/>
+			<false/>
 		</dict>
 		
 		<key>hero2_0.png</key>
@@ -110,7 +110,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{162, 1}, {157, 192}}</string>
+			<string>{{194, 194}, {157, 192}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -132,9 +132,9 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1, 226}, {20, 27}}</string>
+			<string>{{29, 353}, {27, 20}}</string>
 			<key>textureRotated</key>
-			<true/>
+			<false/>
 		</dict>
 		
 		<key>hero3_0.png</key>
@@ -154,7 +154,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{321, 1}, {157, 192}}</string>
+			<string>{{159, 0}, {157, 192}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -176,7 +176,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{29, 197}, {14, 15}}</string>
+			<string>{{0, 381}, {14, 15}}</string>
 			<key>textureRotated</key>
 			<true/>
 		</dict>
@@ -189,9 +189,9 @@
 		<key>format</key>
 		<integer>3</integer>
 		<key>size</key>
-		<string>{1024, 256}</string>
+		<string>{512, 512}</string>
 		<key>name</key>
-		<string>Untitled</string>
+		<string>herozw</string>
 		<key>target</key>
 		<dict>
 			<key>name</key>
