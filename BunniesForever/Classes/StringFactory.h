@@ -11,6 +11,7 @@
 
 #include "Json/lib_json/json_lib.h"
 #include <map>
+#include <functional>
 
 #define FACTORY_GET_INSTANCE(a) template<>a*a::__instance=0;template<> a* a::getInstance(){if(__instance==0)__instance=new a();return __instance;}
 

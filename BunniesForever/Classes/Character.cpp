@@ -11,13 +11,18 @@
 #include "SimpleAudioEngine.h"
 #include "PlatformParams.h"
 
-static const int kGravity=30;
-static const int kMass=90;
-static const int kJumpImpulse=800;
-static const int kLegFingerLength=2;
+static int kGravity=30;
+static int kMass=90;
+static int kJumpImpulse=800;
+static int kLegFingerLength=2;
 
 bool Character::initWithColor(const Color3B& color)
 {
+    kGravity=PPIntForKey("gravity");
+    kMass=PPIntForKey("mass");
+    kJumpImpulse=PPIntForKey("jumpimpulse");
+    kLegFingerLength=PPIntForKey("legfingerlength");
+    
     int charheight=PPIntForKey("characterheight");
     
     Animation* animRun = AnimationCache::getInstance()->getAnimation("anim_run");
