@@ -1046,7 +1046,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mikhail Solovyev (3AR2PRA9X6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mikhail Solovyev (R4653GQ8JL)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1069,7 +1069,11 @@
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "9932EE47-4193-459B-9E3A-B42CD899853D";
+=======
+				PROVISIONING_PROFILE = "ED073D24-ABB6-4B61-9653-63ED1E77D9D5";
+>>>>>>> fba4f25ece20d16532771b3839b7a95e2cce6a74
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1080,7 +1084,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mikhail Solovyev (3AR2PRA9X6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mikhail Solovyev (R4653GQ8JL)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1101,7 +1105,11 @@
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "9932EE47-4193-459B-9E3A-B42CD899853D";
+=======
+				PROVISIONING_PROFILE = "ED073D24-ABB6-4B61-9653-63ED1E77D9D5";
+>>>>>>> fba4f25ece20d16532771b3839b7a95e2cce6a74
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
