@@ -11,6 +11,7 @@
 #include "RowObject.h"
 #include "ObjectFactory.h"
 #include "IngameScene.h"
+#include "PlatformParams.h"
 
 void RunRow::draw(Renderer *renderer, const kmMat4 &transform, bool transformUpdated)
 {
@@ -29,6 +30,9 @@ bool RunRow::init(const Color3B& color)
     setTouchEnabled(true);
     
     _paused=false;
+    
+    _boxHeight=PPIntForKey("boxheight");
+    _bonusHeight=PPIntForKey("bonusheight");
     
     pCharacter = Character::CharacterWithColor(color);
     
@@ -89,11 +93,21 @@ void RunRow::updateGeneration(float dt)
         rowObject->setPosition(getContentSize().width,0);
         
         _rowObjects.pushBack(rowObject);
+
         
         addChild(rowObject);
         
+        if (key=="bonus")
+        {
+            float scale = _bonusHeight/rowObject->getContentSize().height;
+            rowObject->setScale(scale);
+        }
+        
         if (terminal)
         {
+            float scale = _boxHeight/rowObject->getContentSize().height;
+            rowObject->setScale(scale);
+            
             RowObject* obj=RowObjectFactory::getInstance()->ObjectForKey("bonus", "");
             obj->setPosition(getContentSize().width,rowObject->getContentSize().height);
             _rowObjects.pushBack(obj);

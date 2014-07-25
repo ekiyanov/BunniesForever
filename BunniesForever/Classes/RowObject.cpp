@@ -11,6 +11,9 @@
 #include "ObjectFactory.h"
 #include "SimpleAudioEngine.h"
 #include "Character.h"
+#include "cocos-ext.h"
+#include "PlatformParams.h"
+
 
 bool RowObject::init()
 {
@@ -112,7 +115,7 @@ namespace  {
                                                                                             {
                                                                                                 RowObject* ro=new RowObjectTerminal();
                                                                                                 ro->init();
-                                                                                                Sprite* termIcon=Sprite::create("Obstacle.png");
+                                                                                                Sprite* termIcon=Sprite::create("box.png");
                                                                                                 ro->addChild(termIcon, 0, 0);
                                                                                                 ro->setType(0);
                                                                                                 ro->setContentSize(termIcon->getContentSize());
@@ -140,11 +143,23 @@ namespace  {
                                                                                          {
                                                                                              RowObject* ro=new RowObjectRescueMore();
                                                                                              ro->init();
-                                                                                             Sprite* termIcon=Sprite::create("RescueBonus.png");
-                                                                                             ro->addChild(termIcon, 0, 0);
-                                                                                             ro->setContentSize(termIcon->getContentSize());
-                                                                                             termIcon->setPosition(ro->getContentSize().width/2,
+                                                                                             extension::Scale9Sprite* bar = extension::Scale9Sprite::create("sq100.png");
+                                                                                             bar->setContentSize(Size(PPIntForKey("rescuebarwidth"),PPIntForKey("rowheight")));
+                                                                                             ro->addChild(bar, 0, 0);
+                                                                                             
+                                                                                             bar->setColor(IngameScene::getInstance()->getNextColor());
+                                                                                             bar->setOpacity(100);
+                                                                                             
+                                                                                             Sprite* bunny = Sprite::createWithSpriteFrameName("hero0_0.png");
+                                                                                             ro->addChild(bunny);
+
+                                                                                             
+                                                                                             ro->setContentSize(bar->getContentSize());
+                                                                                             bar->setPosition(ro->getContentSize().width/2,
                                                                                                                    ro->getContentSize().height/2);
+                                                                                             bunny->setPosition(ro->getContentSize().width/2,
+                                                                                                                ro->getContentSize().height/2);
+                                                                                             bunny->setOpacity(200);
                                                                                              return ro;
                                                                                          });
 }

@@ -26,6 +26,8 @@ Scene* IngameScene::scene()
     return sc;
 }
 
+
+
 IngameScene* IngameScene::getInstance()
 {
     return __instance;
@@ -40,17 +42,7 @@ void IngameScene::addRow(const Color3B& color)
 {
     RunRow* r = new RunRow();
     
-    int colors[]=
-    {
-        244,7,46,
-        103,189,69,
-        246,182,8,
-        198,8,246
-    };
-    
-    int * colors2=&colors[_rows.size()*3];
-    
-    r->init(Color3B(colors2[0],colors2[1],colors2[2]));
+    r->init(getNextColor());
     r->autorelease();
     
     float newheight=0;
@@ -203,6 +195,21 @@ void IngameScene::onResumeGame(cocos2d::Ref *)
     
     if (_PauseMenu)
         _PauseMenu->removeFromParentAndCleanup(true);
+}
+
+Color3B IngameScene::getNextColor()
+{
+    int colors[]=
+    {
+        244,7,46,
+        103,189,69,
+        246,182,8,
+        198,8,246
+    };
+    
+    int * colors2=&colors[_rows.size()*3];
+    
+    return Color3B(colors2[0],colors2[1],colors2[2]);
 }
 
 void IngameScene::addScore(int score)

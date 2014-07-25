@@ -34,6 +34,8 @@ public:
     
     bool CanSpawnRows();
     
+    Color3B getNextColor();
+    
     void onGameOver(Ref* );
     void onTapPause(Ref* );
     void onRestartGame(Ref*);

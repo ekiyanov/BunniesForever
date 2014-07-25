@@ -9,6 +9,7 @@
 #include "Character.h"
 #include "RowObject.h"
 #include "SimpleAudioEngine.h"
+#include "PlatformParams.h"
 
 static const int kGravity=30;
 static const int kMass=90;
@@ -17,6 +18,8 @@ static const int kLegFingerLength=2;
 
 bool Character::initWithColor(const Color3B& color)
 {
+    int charheight=PPIntForKey("characterheight");
+    
     Animation* animRun = AnimationCache::getInstance()->getAnimation("anim_run");
     if (animRun==0){
         Vector<SpriteFrame*> frames1;
@@ -60,8 +63,8 @@ bool Character::initWithColor(const Color3B& color)
     
     setContentSize(char1->getContentSize());
     
-    char1->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
-    jump->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+    char1->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
+    jump->setAnchorPoint(Point::ANCHOR_BOTTOM_LEFT);
     
     char1->setColor(color);
     
@@ -75,6 +78,9 @@ bool Character::initWithColor(const Color3B& color)
     _jumpSprite=jump;
     _jumpAnim=animjump;
     
+    float scale=charheight/getContentSize().height;
+    setScale(scale);
+    
     return true;
 }
 
@@ -84,7 +90,12 @@ Character* Character::CharacterWithColor(const Color3B& color){
     char1->autorelease();
     return char1;
 }
-
+void Character::draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
+{
+    renderer->render();
+    DrawPrimitives::setDrawColor4B(100, 100, 100, 255);
+    DrawPrimitives::drawRect(Point::ZERO, Point(getContentSize().width,getContentSize().height));
+}
 void Character::update(float dt)
 {
     vSpeed-=kGravity*kMass*dt;
@@ -95,6 +106,7 @@ void Character::update(float dt)
         vSpeed=0;
     }
 }
+
 
 void Character::Jump()
 {

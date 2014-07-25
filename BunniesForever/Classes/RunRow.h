@@ -22,6 +22,9 @@ class RunRow : public Layer
     
     float           _nextGeneration;
     
+    int             _boxHeight;
+    int             _bonusHeight;
+    
     bool            _paused;
 public:
     bool init(const Color3B & color);

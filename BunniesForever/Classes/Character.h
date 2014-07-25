@@ -29,7 +29,7 @@ public:
     static Character* CharacterWithColor(const Color3B& color);
     bool initWithColor(const Color3B& color);
     void update(float dt);
-    
+    void draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated);
     void Jump();
     
     void doDamage(int damage);
