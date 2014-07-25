@@ -14,7 +14,11 @@
 #include "PlatformParams.h"
 
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
-#include "AndroidJNI.h"
+#include "hellocpp/AndroidJNI.h"
+#endif
+
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+#include "iOSNative.h"
 #endif
 
 static IngameScene* __instance = 0;
@@ -29,8 +33,6 @@ Scene* IngameScene::scene()
     sc->addChild(ingame);
     return sc;
 }
-
-
 
 IngameScene* IngameScene::getInstance()
 {
@@ -66,6 +68,14 @@ void IngameScene::addRow(const Color3B& color)
     
     r->setPosition(Point(getContentSize().width,newTopY-newheight));
     
+    char keyForReady[64]; sprintf(keyForReady, "readysetfor%zi",_rows.size());
+    int val = Profile::getInstance()->intForKey(keyForReady);
+    if (val==0)
+    {
+        Profile::getInstance()->setIntForKey(1, keyForReady);
+        Profile::getInstance()->store();
+    }
+    
     for (auto it : _rows)
     {
         newTopY-=it->getContentSize().height;
@@ -73,7 +83,7 @@ void IngameScene::addRow(const Color3B& color)
         
         it->killAllObjects();
         
-        it->setReadySetGo(true);
+        it->setReadySetGo(val==0||_rows.size()==1);
     }
 }
 
@@ -117,6 +127,9 @@ void IngameScene::onGameOver(cocos2d::Ref *)
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     showAdmobJNI();
 #endif
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+    showAd();
+#endif
 }
 
 void IngameScene::onTapPause(cocos2d::Ref *)
@@ -137,6 +150,9 @@ void IngameScene::onTapPause(cocos2d::Ref *)
     
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     showAdmobJNI();
+#endif
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+    showAd();
 #endif
 }
 
@@ -224,6 +240,9 @@ void IngameScene::onRestartGame(Ref*)
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     hideAdmobJNI();
 #endif
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+    hideAd();
+#endif
 }
 
 void IngameScene::onResumeGame(cocos2d::Ref *)
@@ -236,6 +255,9 @@ void IngameScene::onResumeGame(cocos2d::Ref *)
     
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     hideAdmobJNI();
+#endif
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+    hideAd();
 #endif
 }
 

@@ -64,6 +64,14 @@
 		583B5776198211BA00AE20B9 /* RowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5771198211B500AE20B9 /* RowObject.cpp */; };
 		583B5779198217C800AE20B9 /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5777198217C800AE20B9 /* ObjectFactory.cpp */; };
 		583B577A198217C800AE20B9 /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5777198217C800AE20B9 /* ObjectFactory.cpp */; };
+		5858E1681982A8DE000AE167 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1661982A8DE000AE167 /* libGoogleAdMobAds.a */; };
+		5858E1691982A8DE000AE167 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5858E1671982A8DE000AE167 /* README.txt */; };
+		5858E16D1982A937000AE167 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E16C1982A937000AE167 /* AdSupport.framework */; };
+		5858E16F1982A94D000AE167 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E16E1982A94D000AE167 /* MessageUI.framework */; };
+		5858E1711982A955000AE167 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1701982A955000AE167 /* StoreKit.framework */; };
+		5858E1731982A95E000AE167 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1721982A95E000AE167 /* SystemConfiguration.framework */; };
+		5858E1761982AC6A000AE167 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1751982AC6A000AE167 /* iAd.framework */; };
+		5858E1781982ADD6000AE167 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858E1771982ADD6000AE167 /* CoreTelephony.framework */; };
 		58849B3319820689006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
 		58849B39198206A7006A5346 /* RunRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B37198206A7006A5346 /* RunRow.cpp */; };
 		58849B3A198206B4006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
@@ -309,6 +317,27 @@
 		583B5772198211B500AE20B9 /* RowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowObject.h; path = ../Classes/RowObject.h; sourceTree = "<group>"; };
 		583B5777198217C800AE20B9 /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectFactory.cpp; path = ../Classes/ObjectFactory.cpp; sourceTree = "<group>"; };
 		583B5778198217C800AE20B9 /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectFactory.h; path = ../Classes/ObjectFactory.h; sourceTree = "<group>"; };
+		5858E15A1982A8DE000AE167 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		5858E15B1982A8DE000AE167 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		5858E15C1982A8DE000AE167 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		5858E15D1982A8DE000AE167 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		5858E15E1982A8DE000AE167 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		5858E15F1982A8DE000AE167 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
+		5858E1601982A8DE000AE167 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
+		5858E1611982A8DE000AE167 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		5858E1621982A8DE000AE167 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		5858E1631982A8DE000AE167 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
+		5858E1641982A8DE000AE167 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		5858E1651982A8DE000AE167 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		5858E1661982A8DE000AE167 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		5858E1671982A8DE000AE167 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5858E16C1982A937000AE167 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		5858E16E1982A94D000AE167 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		5858E1701982A955000AE167 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		5858E1721982A95E000AE167 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		5858E1741982AB87000AE167 /* iOSNative.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iOSNative.h; path = ios/iOSNative.h; sourceTree = SOURCE_ROOT; };
+		5858E1751982AC6A000AE167 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
+		5858E1771982ADD6000AE167 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		58849B3119820689006A5346 /* IngameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IngameScene.cpp; path = ../Classes/IngameScene.cpp; sourceTree = "<group>"; };
 		58849B3219820689006A5346 /* IngameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngameScene.h; path = ../Classes/IngameScene.h; sourceTree = "<group>"; };
 		58849B37198206A7006A5346 /* RunRow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RunRow.cpp; path = ../Classes/RunRow.cpp; sourceTree = "<group>"; };
@@ -375,7 +404,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5858E1781982ADD6000AE167 /* CoreTelephony.framework in Frameworks */,
+				5858E1761982AC6A000AE167 /* iAd.framework in Frameworks */,
+				5858E1731982A95E000AE167 /* SystemConfiguration.framework in Frameworks */,
+				5858E1711982A955000AE167 /* StoreKit.framework in Frameworks */,
+				5858E16F1982A94D000AE167 /* MessageUI.framework in Frameworks */,
+				5858E16D1982A937000AE167 /* AdSupport.framework in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
+				5858E1681982A8DE000AE167 /* libGoogleAdMobAds.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
 				1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */,
@@ -429,6 +465,7 @@
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
+				5858E1741982AB87000AE167 /* iOSNative.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -492,6 +529,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5858E1461982A8DE000AE167 /* GoogleMobileAdsSdkiOS-6.10.0 */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -506,6 +544,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5858E1771982ADD6000AE167 /* CoreTelephony.framework */,
+				5858E1751982AC6A000AE167 /* iAd.framework */,
+				5858E1721982A95E000AE167 /* SystemConfiguration.framework */,
+				5858E1701982A955000AE167 /* StoreKit.framework */,
+				5858E16E1982A94D000AE167 /* MessageUI.framework */,
+				5858E16C1982A937000AE167 /* AdSupport.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
 				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
@@ -569,6 +613,27 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		5858E1461982A8DE000AE167 /* GoogleMobileAdsSdkiOS-6.10.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5858E15A1982A8DE000AE167 /* GADAdMobExtras.h */,
+				5858E15B1982A8DE000AE167 /* GADAdNetworkExtras.h */,
+				5858E15C1982A8DE000AE167 /* GADAdSize.h */,
+				5858E15D1982A8DE000AE167 /* GADBannerView.h */,
+				5858E15E1982A8DE000AE167 /* GADBannerViewDelegate.h */,
+				5858E15F1982A8DE000AE167 /* GADInAppPurchase.h */,
+				5858E1601982A8DE000AE167 /* GADInAppPurchaseDelegate.h */,
+				5858E1611982A8DE000AE167 /* GADInterstitial.h */,
+				5858E1621982A8DE000AE167 /* GADInterstitialDelegate.h */,
+				5858E1631982A8DE000AE167 /* GADModules.h */,
+				5858E1641982A8DE000AE167 /* GADRequest.h */,
+				5858E1651982A8DE000AE167 /* GADRequestError.h */,
+				5858E1661982A8DE000AE167 /* libGoogleAdMobAds.a */,
+				5858E1671982A8DE000AE167 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-6.10.0";
+			sourceTree = "<group>";
 		};
 		58849B3619820690006A5346 /* Ingame */ = {
 			isa = PBXGroup;
@@ -824,6 +889,7 @@
 				588BF06D190D1AC3009F4FDA /* ipadhd in Resources */,
 				588BEFFA190CFBAB009F4FDA /* Default-Landscape@2x.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				5858E1691982A8DE000AE167 /* README.txt in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				588BF06C190D1AC3009F4FDA /* ipad in Resources */,
@@ -1000,7 +1066,8 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
 				PROVISIONING_PROFILE = "131579FD-423B-41A6-A41C-06E2984F2197";
 				SDKROOT = iphoneos;
@@ -1031,7 +1098,8 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
 				PROVISIONING_PROFILE = "131579FD-423B-41A6-A41C-06E2984F2197";
 				SDKROOT = iphoneos;

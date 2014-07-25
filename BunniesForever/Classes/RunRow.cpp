@@ -182,16 +182,20 @@ void RunRow::updateCollision()
 
 void RunRow::setReadySetGo(bool state)
 {
-    _taptojump->setVisible(true);
- 
-    _gamet=0;
+    _taptojump->setVisible(state);
     
-    _taptojump->setOpacity(255);
-    _taptojump->setPosition(getContentSize().width+_taptojump->getContentSize().width,
-                            _taptojump->getContentSize().height/2);
-    _taptojump->runAction(EaseElasticOut::create(MoveTo::create(0.5,
-                Point(getContentSize().width-_taptojump->getContentSize().width/2,
-                                                    _taptojump->getContentSize().height/2)),0.5));
-    
-     _readysetgo=state;
+    if (state){
+
+     
+        _gamet=0;
+        
+        _taptojump->setOpacity(255);
+        _taptojump->setPosition(getContentSize().width+_taptojump->getContentSize().width,
+                                _taptojump->getContentSize().height/2);
+        _taptojump->runAction(EaseElasticOut::create(MoveTo::create(0.5,
+                    Point(getContentSize().width-_taptojump->getContentSize().width/2,
+                                                        _taptojump->getContentSize().height/2)),0.5));
+        
+         _readysetgo=state;
+    }
 }

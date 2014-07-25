@@ -26,6 +26,31 @@
 #import "RootViewController.h"
 #import "cocos2d.h"
 #import "CCEAGLView.h"
+#import "GADBannerView.h"
+#import <iAd/iAd.h>
+
+@interface RootViewController()<GADBannerViewDelegate,ADBannerViewDelegate>
+{
+}
+@property (atomic,assign) BOOL adViewHidden;
+@property (atomic,assign) BOOL iadViewHidden;
+@property (nonatomic, strong) GADBannerView * adView;
+@property (nonatomic, strong) ADBannerView* iAdView;
+@end
+
+RootViewController* rootvc=NULL;
+
+void showAd()
+{
+    rootvc.adView.hidden=rootvc.adViewHidden;
+    rootvc.iAdView.hidden=rootvc.iadViewHidden;
+}
+
+void hideAd()
+{
+    rootvc.adView.hidden=true;
+    rootvc.iAdView.hidden=true;
+}
 
 @implementation RootViewController
 
@@ -45,13 +70,78 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)adViewDidReceiveAd:(GADBannerView *)view
+{
+    _adView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-view.frame.size.height/2);
 }
 
-*/
+/// Called when an ad request failed. Normally this is because no network connection was available
+/// or no ads were available (i.e. no fill). If the error was received as a part of the server-side
+/// auto refreshing, you can examine the hasAutoRefreshed property of the view.
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    
+    self.iAdView.hidden=true;
+    self.iadViewHidden=true;
+    self.adViewHidden=false;
+    [self.view addSubview:_adView];
+    
+    [_adView setHidden:true];
+    _adView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-_adView.frame.size.height/2);
+    
+    // Инициирование общего запроса на загрузку с объявлением.
+    [_adView loadRequest:[GADRequest request]];
+}
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    [self.view bringSubviewToFront:self.iAdView];
+}
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.adViewHidden=true;
+    self.iadViewHidden=false;
+    
+    rootvc=self;
+    if (self.view.frame.size.width>=768)
+        self.iAdView=[[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-66,
+                                                                    self.view.frame.size.width,
+                                                                      66)];
+    else
+        self.iAdView=[[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50,
+                                                                    self.view.frame.size.width,
+                                                                          50)];
+    
+    self.iAdView.delegate=self;
+    
+    [self.view addSubview:self.iAdView];
+    
+                        
+    GADAdSize bannerSize=kGADAdSizeBanner;
+    if (self.view.frame.size.width>=768)
+        bannerSize=kGADAdSizeLeaderboard;
+    
+    _adView = [[GADBannerView alloc] initWithAdSize:bannerSize];
+    
+    // Указание идентификатора рекламного блока.
+    _adView.adUnitID = @"ca-app-pub-8430244079488991/2421601847";
+    
+    // Укажите, какой UIViewController необходимо восстановить
+    // после перехода пользователя по объявлению и добавить в иерархию представлений.
+    _adView.rootViewController = self;
+    _adView.delegate=self;
+    
+
+    
+}
+
+
 // Override to allow orientations other than the default portrait orientation.
 // This method is deprecated on ios6
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

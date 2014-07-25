@@ -276,7 +276,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/HelloWorldScene.o: \
  jni/../../cocos2d/cocos/2d/CCDrawNode.h \
  jni/../../cocos2d/extensions/physics-nodes/CCPhysicsSprite.h \
  jni/../../cocos2d/extensions/assets-manager/AssetsManager.h \
- jni/../../Classes/PlatformParams.h
+ jni/../../Classes/PlatformParams.h jni/hellocpp/AndroidJNI.h
 
 jni/../../Classes/HelloWorldScene.h:
 
@@ -835,3 +835,5 @@ jni/../../cocos2d/extensions/physics-nodes/CCPhysicsSprite.h:
 jni/../../cocos2d/extensions/assets-manager/AssetsManager.h:
 
 jni/../../Classes/PlatformParams.h:
+
+jni/hellocpp/AndroidJNI.h:

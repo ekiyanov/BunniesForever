@@ -227,7 +227,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/reader.h \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/features.h \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/writer.h \
- /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/PlatformParams.h
+ /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/PlatformParams.h \
+ jni/hellocpp/AndroidJNI.h
 
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/IngameScene.h:
 
@@ -686,3 +687,5 @@ jni/../../cocos2d/cocos/deprecated/CCDeprecated.h:
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/writer.h:
 
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/PlatformParams.h:
+
+jni/hellocpp/AndroidJNI.h:

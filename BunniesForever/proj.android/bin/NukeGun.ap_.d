@@ -25,6 +25,7 @@
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/Default.png \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/Default@2x.png \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/fonts \
+/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/icon.png \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/Info.plist \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/ipad \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/assets/ipadhd \

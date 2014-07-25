@@ -4,7 +4,11 @@
 #include "cocos-ext.h"
 #include "PlatformParams.h"
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
-#include "AndroidJNI.h"
+#include "hellocpp/AndroidJNI.h"
+#endif
+
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+#include "iOSNative.h"
 #endif
 
 using namespace cocos2d;
@@ -32,6 +36,10 @@ bool HelloWorld::init()
         return false;
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     hideAdmobJNI();
+#endif
+    
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+    hideAd();
 #endif
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Click2.mp3");
