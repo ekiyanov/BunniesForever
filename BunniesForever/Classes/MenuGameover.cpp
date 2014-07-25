@@ -7,7 +7,8 @@
 //
 
 #include "MenuGameover.h"
-
+#include "cocos-ext.h"
+using namespace extension;
 void MenuGameover::draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
 {
     renderer->render();
@@ -31,16 +32,35 @@ bool MenuGameover::init()
     title->setPosition(Point(getContentSize().width/2,
                              getContentSize().height*0.8));
     
-    MenuItemLabel* share = MenuItemLabel::create(Label::createWithSystemFont("SHARE",
-                                                                              "HelveticaNeue",
-                                                                              20),
+    Scale9Sprite * btnBg = Scale9Sprite::create("sq100.png");
+    btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+    
+    {
+        Label* lbl = Label::createWithSystemFont("SHARE", "Arial", 40);
+        lbl->setPosition(Point(btnBg->getContentSize().width/2,
+                               btnBg->getContentSize().height/2));
+        btnBg->addChild(lbl);
+        btnBg->setColor(Color3B(233,143,11));
+    }
+    
+    MenuItemLabel* share = MenuItemLabel::create(btnBg,
                                                   [](Ref*){
                                                       NotificationCenter::getInstance()->postNotification("onShare");
                                                   });
     
-    MenuItemLabel* restart = MenuItemLabel::create(Label::createWithSystemFont("RESTART",
-                                                                               "HelveticaNeue",
-                                                                               20),
+    btnBg = Scale9Sprite::create("sq100.png");
+    btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+    
+    {
+        Label* lbl = Label::createWithSystemFont("SHARE", "Arial", 40);
+        lbl->setPosition(Point(btnBg->getContentSize().width/2,
+                               btnBg->getContentSize().height/2));
+        btnBg->addChild(lbl);
+        btnBg->setColor(Color3B(233,143,11));
+    }
+
+    
+    MenuItemLabel* restart = MenuItemLabel::create(btnBg,
                                                    [](Ref*){
                                                        NotificationCenter::getInstance()->postNotification("onRestart");
                                                    });

@@ -78,15 +78,27 @@ void RunRow::updateGeneration(float dt)
     {
         _nextGeneration=CCRANDOM_0_1()*1+1;
      
-        RowObject * rowObject=RowObjectFactory::getInstance()->ObjectForKey(
-                                                                            IngameScene::getInstance()->CanSpawnRows()?"rescue":(
-                                                                            rand()%5==0?"bonus":"terminal"),
+        bool terminal = false;
+        std::string key =IngameScene::getInstance()->CanSpawnRows()?"rescue":(
+                                                                              rand()%5==0?"bonus":"terminal");
+        RowObject * rowObject=RowObjectFactory::getInstance()->ObjectForKey(key.c_str()
+                                                                            ,
                                                                             "");
+        
+        terminal = key=="terminal";
         rowObject->setPosition(getContentSize().width,0);
         
         _rowObjects.pushBack(rowObject);
         
         addChild(rowObject);
+        
+        if (terminal)
+        {
+            RowObject* obj=RowObjectFactory::getInstance()->ObjectForKey("bonus", "");
+            obj->setPosition(getContentSize().width,rowObject->getContentSize().height);
+            _rowObjects.pushBack(obj);
+            addChild(obj);
+        }
     }
 }
 

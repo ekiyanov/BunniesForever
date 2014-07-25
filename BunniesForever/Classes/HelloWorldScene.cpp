@@ -1,9 +1,10 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 #include "IngameScene.h"
-
+#include "cocos-ext.h"
 
 using namespace cocos2d;
+using namespace extension;
 using namespace CocosDenshion;
 
 Scene* HelloWorld::scene()
@@ -29,13 +30,33 @@ bool HelloWorld::init()
     // create menu, it's an autorelease object
     Menu* pMenu=Menu::create();
     
-    MenuItemLabel* btnStartSimple = MenuItemLabel::create(Label::createWithSystemFont("Start", "HelveticaNeue", 20),
+    Scale9Sprite * btnBg = Scale9Sprite::create("sq100.png");
+    btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+    
+    {
+        Label* lbl = Label::createWithSystemFont("Start", "Arial", 40);
+        lbl->setPosition(Point(btnBg->getContentSize().width/2,
+                               btnBg->getContentSize().height/2));
+        btnBg->addChild(lbl);
+        btnBg->setColor(Color3B(233,143,11));
+    }
+    
+    MenuItemLabel* btnStartSimple = MenuItemLabel::create(btnBg,
                                                           [](Ref*)
                                                           {
                                                               Scene* scene = IngameScene::scene();
                                                               Director::getInstance()->pushScene(scene);
                                                           });
     
+    /*
+    {
+        btnBg = Scale9Sprite::create("sq100.png");
+        btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+        
+        Label* lbl = Label::createWithSystemFont("Top Scores", "HelveticaNeue", 20);
+        btnBg->addChild(lbl);
+        btnBg->setColor(Color3B::MAGENTA);
+    }
     
     
     MenuItemLabel* btnScores = MenuItemLabel::create(Label::createWithSystemFont("Top Scores", "HelveticaNeue", 20),
@@ -44,9 +65,12 @@ bool HelloWorld::init()
                                                          
                                                      });
     
-    pMenu->addChild(btnStartSimple);
+    
     pMenu->addChild(btnScores);
     
+    */
+    
+    pMenu->addChild(btnStartSimple);
     
     pMenu->alignItemsVertically();
     this->addChild(pMenu, 1);

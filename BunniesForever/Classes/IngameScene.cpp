@@ -67,7 +67,7 @@ void IngameScene::addRow(const Color3B& color)
 bool IngameScene::CanSpawnRows()
 {
     if (_rows.size()<4){
-        return _score>=(pow(2,_rows.size()));
+        return _score>=(pow(5,_rows.size()));
     }
     
     return false;
