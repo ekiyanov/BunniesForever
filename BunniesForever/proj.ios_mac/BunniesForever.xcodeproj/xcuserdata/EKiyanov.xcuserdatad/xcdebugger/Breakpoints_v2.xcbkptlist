@@ -719,7 +719,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
             endingLineNumber = "169"
-            landmarkName = "IngameScene::onRestartGame(Ref*)"
+            landmarkName = "IngameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

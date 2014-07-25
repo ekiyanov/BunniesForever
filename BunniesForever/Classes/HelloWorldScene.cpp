@@ -2,6 +2,7 @@
 #include "SimpleAudioEngine.h"
 #include "IngameScene.h"
 #include "cocos-ext.h"
+#include "PlatformParams.h"
 
 using namespace cocos2d;
 using namespace extension;
@@ -27,6 +28,8 @@ bool HelloWorld::init()
     if ( !CCLayer::init() )
         return false;
     
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("hero.plist");
+    
     // create menu, it's an autorelease object
     Menu* pMenu=Menu::create();
     
@@ -34,7 +37,7 @@ bool HelloWorld::init()
     btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
     
     {
-        Label* lbl = Label::createWithSystemFont("Start", "Arial", 40);
+        Label* lbl = Label::createWithTTF("START", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
         lbl->setPosition(Point(btnBg->getContentSize().width/2,
                                btnBg->getContentSize().height/2));
         btnBg->addChild(lbl);

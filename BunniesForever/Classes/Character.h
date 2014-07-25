@@ -21,6 +21,9 @@ class Character : public Node
 {
     Action* _blinkAction;
     float vSpeed;
+    
+    Sprite* _jumpSprite;
+    Animation* _jumpAnim;
 public:
     
     static Character* CharacterWithColor(const Color3B& color);

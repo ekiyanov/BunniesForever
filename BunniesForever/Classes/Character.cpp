@@ -16,15 +16,50 @@ static const int kLegFingerLength=2;
 
 bool Character::initWithColor(const Color3B& color)
 {
-    Sprite* char1=Sprite::create("Char1.png");
+    Animation* animRun = AnimationCache::getInstance()->getAnimation("anim_run");
+    if (animRun==0){
+        Vector<SpriteFrame*> frames1;
+        for (int i=0;i<4;i++)
+        {
+            char framename[64];sprintf(framename, "hero0_%i.png",i);
+            SpriteFrame*fr=SpriteFrameCache::getInstance()->getSpriteFrameByName(framename);
+            frames1.pushBack(fr);
+        }
+        animRun = Animation::createWithSpriteFrames(frames1);
+        animRun->setDelayPerUnit(0.2);
+        
+        AnimationCache::getInstance()->addAnimation(animRun, "anim_run");
+    }
     
+    Animation * animjump = AnimationCache::getInstance()->getAnimation("anim_jump");
+    if (animjump==0){
+        Vector<SpriteFrame*> frames1;
+        for (int i=0;i<4;i++)
+        {
+            char framename[64];sprintf(framename, "hero0_%i.png",i);
+            SpriteFrame*fr=SpriteFrameCache::getInstance()->getSpriteFrameByName(framename);
+            frames1.pushBack(fr);
+        }
+        animjump = Animation::createWithSpriteFrames(frames1);
+        animjump->setDelayPerUnit(0.2);
+        
+        AnimationCache::getInstance()->addAnimation(animjump, "anim_jump");
+    }
+
+    Sprite* char1=Sprite::createWithSpriteFrame(animRun->getFrames().front()->getSpriteFrame());
     addChild(char1);
+    
+    char1->runAction(RepeatForever::create(Animate::create(animRun)));
+    Sprite* jump=Sprite::createWithSpriteFrame(animjump->getFrames().front()->getSpriteFrame());
+    addChild(jump);
+    
     
     _blinkAction=0;
     
     setContentSize(char1->getContentSize());
     
     char1->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
+    jump->setAnchorPoint(Point::ANCHOR_MIDDLE_BOTTOM);
     
     char1->setColor(color);
     
@@ -33,6 +68,10 @@ bool Character::initWithColor(const Color3B& color)
     scheduleUpdate();
     
     vSpeed=0;
+    
+    
+    _jumpSprite=jump;
+    _jumpAnim=animjump;
     
     return true;
 }
@@ -58,7 +97,16 @@ void Character::update(float dt)
 void Character::Jump()
 {
     if (getPositionY()<kLegFingerLength)
+    {
         vSpeed=kJumpImpulse;
+        _jumpSprite->runAction(Sequence::create(
+                                                Animate::create(_jumpAnim),
+                                                CallFunc::create([this](){
+        
+            _jumpSprite->setSpriteFrame(_jumpAnim->getFrames().front()->getSpriteFrame());
+        })
+                                                , NULL));
+    }
 }
 
 bool Character::onCollideWithObject(RowObject* rowObject)

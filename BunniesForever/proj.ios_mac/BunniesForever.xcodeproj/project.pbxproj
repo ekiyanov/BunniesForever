@@ -58,6 +58,8 @@
 		5818E735198231B9001C2D9A /* MenuPause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E732198231B9001C2D9A /* MenuPause.cpp */; };
 		5818E73A198231C5001C2D9A /* MenuGameover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E738198231C5001C2D9A /* MenuGameover.cpp */; };
 		5818E73B198231C5001C2D9A /* MenuGameover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E738198231C5001C2D9A /* MenuGameover.cpp */; };
+		5818E73E19825471001C2D9A /* PlatformParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E73C19825471001C2D9A /* PlatformParams.cpp */; };
+		5818E73F19825471001C2D9A /* PlatformParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5818E73C19825471001C2D9A /* PlatformParams.cpp */; };
 		583B5773198211B500AE20B9 /* RowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5771198211B500AE20B9 /* RowObject.cpp */; };
 		583B5776198211BA00AE20B9 /* RowObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5771198211B500AE20B9 /* RowObject.cpp */; };
 		583B5779198217C800AE20B9 /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 583B5777198217C800AE20B9 /* ObjectFactory.cpp */; };
@@ -302,6 +304,8 @@
 		5818E733198231B9001C2D9A /* MenuPause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPause.h; path = ../Classes/MenuPause.h; sourceTree = "<group>"; };
 		5818E738198231C5001C2D9A /* MenuGameover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuGameover.cpp; path = ../Classes/MenuGameover.cpp; sourceTree = "<group>"; };
 		5818E739198231C5001C2D9A /* MenuGameover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuGameover.h; path = ../Classes/MenuGameover.h; sourceTree = "<group>"; };
+		5818E73C19825471001C2D9A /* PlatformParams.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlatformParams.cpp; path = ../Classes/PlatformParams.cpp; sourceTree = "<group>"; };
+		5818E73D19825471001C2D9A /* PlatformParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformParams.h; path = ../Classes/PlatformParams.h; sourceTree = "<group>"; };
 		583B5771198211B500AE20B9 /* RowObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RowObject.cpp; path = ../Classes/RowObject.cpp; sourceTree = "<group>"; };
 		583B5772198211B500AE20B9 /* RowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RowObject.h; path = ../Classes/RowObject.h; sourceTree = "<group>"; };
 		583B5777198217C800AE20B9 /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectFactory.cpp; path = ../Classes/ObjectFactory.cpp; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 				58F3943A195721730022C478 /* Profile.h */,
 				58F3943019570BCE0022C478 /* NodeFactory.cpp */,
 				58F3943119570BCE0022C478 /* NodeFactory.h */,
+				5818E73C19825471001C2D9A /* PlatformParams.cpp */,
+				5818E73D19825471001C2D9A /* PlatformParams.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -877,6 +883,7 @@
 				589F7776190CE38200A3E8D9 /* json_value.cpp in Sources */,
 				5818E73A198231C5001C2D9A /* MenuGameover.cpp in Sources */,
 				589F7774190CE38200A3E8D9 /* json_reader.cpp in Sources */,
+				5818E73E19825471001C2D9A /* PlatformParams.cpp in Sources */,
 				58F3943B195721730022C478 /* Profile.cpp in Sources */,
 				589F7757190CE37000A3E8D9 /* micropather.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -910,6 +917,7 @@
 				5818E735198231B9001C2D9A /* MenuPause.cpp in Sources */,
 				589F772E190CE33700A3E8D9 /* Factory.cpp in Sources */,
 				5818E73B198231C5001C2D9A /* MenuGameover.cpp in Sources */,
+				5818E73F19825471001C2D9A /* PlatformParams.cpp in Sources */,
 				589F772C190CE33700A3E8D9 /* Explode.cpp in Sources */,
 				58849B3A198206B4006A5346 /* IngameScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

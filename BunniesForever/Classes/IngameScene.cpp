@@ -10,6 +10,7 @@
 #include "RunRow.h"
 #include "MenuGameover.h"
 #include "MenuPause.h"
+#include "Profile.h"
 
 static IngameScene* __instance = 0;
 
@@ -37,7 +38,18 @@ float IngameScene::runSpeed()
 void IngameScene::addRow(const Color3B& color)
 {
     RunRow* r = new RunRow();
-    r->init(color);
+    
+    int colors[]=
+    {
+        244,7,46,
+        103,189,69,
+        246,182,8,
+        198,8,246
+    };
+    
+    int * colors2=&colors[_rows.size()*3];
+    
+    r->init(Color3B(colors2[0],colors2[1],colors2[2]));
     r->autorelease();
     
     float newheight=0;
@@ -88,6 +100,8 @@ void IngameScene::onGameOver(cocos2d::Ref *)
     {
         r->setPaused(true);
     }
+    
+    Profile::getInstance()->setIntForKey(_score,"last");
     
     if (_GameoverMenu==0)
     {
