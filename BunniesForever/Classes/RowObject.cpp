@@ -76,7 +76,7 @@ public:
     int type(){return 1;}
     bool activated(Character* char1)
     {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("BonusGetFreeze.mp3");
+        
         char1->doDamage(1);
         
         return true;
@@ -97,6 +97,8 @@ public:
     bool activated(Character* char1)
     {
         if (_activated==false){
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("AchievementGet.mp3");
+            
             IngameScene::getInstance()->addRow(Color3B::GREEN);
             _activated=true;
         }

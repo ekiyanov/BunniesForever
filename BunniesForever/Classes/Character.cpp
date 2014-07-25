@@ -8,6 +8,7 @@
 
 #include "Character.h"
 #include "RowObject.h"
+#include "SimpleAudioEngine.h"
 
 static const int kGravity=30;
 static const int kMass=90;
@@ -21,7 +22,7 @@ bool Character::initWithColor(const Color3B& color)
         Vector<SpriteFrame*> frames1;
         for (int i=0;i<4;i++)
         {
-            char framename[64];sprintf(framename, "hero0_%i.png",i);
+            char framename[64];sprintf(framename, "hero%i_0.png",i);
             SpriteFrame*fr=SpriteFrameCache::getInstance()->getSpriteFrameByName(framename);
             frames1.pushBack(fr);
         }
@@ -34,9 +35,10 @@ bool Character::initWithColor(const Color3B& color)
     Animation * animjump = AnimationCache::getInstance()->getAnimation("anim_jump");
     if (animjump==0){
         Vector<SpriteFrame*> frames1;
+        frames1.clear();
         for (int i=0;i<4;i++)
         {
-            char framename[64];sprintf(framename, "hero0_%i.png",i);
+            char framename[64];sprintf(framename, "hero%i_1.png",i);
             SpriteFrame*fr=SpriteFrameCache::getInstance()->getSpriteFrameByName(framename);
             frames1.pushBack(fr);
         }
@@ -96,6 +98,9 @@ void Character::update(float dt)
 
 void Character::Jump()
 {
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Click2.mp3");
+    
     if (getPositionY()<kLegFingerLength)
     {
         vSpeed=kJumpImpulse;

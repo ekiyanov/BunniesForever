@@ -11,6 +11,7 @@
 #include "MenuGameover.h"
 #include "MenuPause.h"
 #include "Profile.h"
+#include "PlatformParams.h"
 
 static IngameScene* __instance = 0;
 
@@ -101,7 +102,8 @@ void IngameScene::onGameOver(cocos2d::Ref *)
         r->setPaused(true);
     }
     
-    Profile::getInstance()->setIntForKey(_score,"last");
+    Profile::getInstance()->setIntForKey(_score,"lastscore");
+    Profile::getInstance()->store();
     
     if (_GameoverMenu==0)
     {
@@ -154,7 +156,8 @@ bool IngameScene::init()
     pausebtn->setPosition(Point(getContentSize().width-pausebtn->getContentSize().width/2,
                                 getContentSize().height-pausebtn->getContentSize().height/2));
     
-    Label* score = Label::createWithSystemFont("0", "HelveticaNeue", 20);
+    Label* score = Label::createWithTTF("0","fonts/victor-pixel.ttf",
+                                        PPIntForKey("fontsize")*0.7);
     addChild(score);
     score->setPosition(Point(getContentSize().width/2,
                              getContentSize().height-score->getContentSize().height));
@@ -188,6 +191,7 @@ void IngameScene::onRestartGame(Ref*)
         _GameoverMenu->removeFromParentAndCleanup(true);
     
     _score=0;
+    _scoreLabel->setString("0");
     
     addRow(Color3B::RED);
 }

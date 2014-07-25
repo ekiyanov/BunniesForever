@@ -25,21 +25,27 @@ bool AppDelegate::applicationDidFinishLaunching() {
     std::vector<std::string> searchpath;
 
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
-    if (s.width==1024 || s.width==2048)
+    if (s.width==1536)
+    {
+        searchpath.push_back("ipadhd");
+        searchpath.push_back("ipad");
+    }
+    if (s.width==768)
     {
         searchpath.push_back("ipad");
     }
-    if (s.width==2048)
+    
+    if (s.width==640)
     {
-        searchpath.push_back("ipadhd");
+        searchpath.push_back("iphonehd");
+        searchpath.push_back("iphone");
     }
     
-    if (s.height==320 || s.height==640)
+    if (s.width==320)
     {
         searchpath.push_back("iphone");
     }
-    if(s.height==640)
-        searchpath.push_back("iphonehd");
+
 #else
     searchpath.push_back("android");
 #endif

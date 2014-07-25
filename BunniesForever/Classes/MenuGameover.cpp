@@ -11,6 +11,9 @@
 #include "PlatformParams.h"
 #include "Profile.h"
 
+#include "SimpleAudioEngine.h"
+
+
 using namespace extension;
 void MenuGameover::draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
 {
@@ -22,6 +25,46 @@ void MenuGameover::draw( Renderer* renderer, const kmMat4 &transform, bool trans
                                   Color4F(1,1,1,0.75));
 }
 
+void MenuGameover::onEnter()
+{
+    Layer::onEnter();
+    
+    int last=Profile::getInstance()->intForKey("lastscore");
+    int top=Profile::getInstance()->intForKey("topscore");
+    
+    char topScore[64]; sprintf(topScore,  "  TOP: %i", top);
+    char lastScore[64];sprintf(lastScore, "SCORE: %i", last);
+    
+    
+    topScoreLbl->setString(topScore);
+    lastScoreLbl->setString(lastScore);
+    
+    if (last>top)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Win.mp3");
+        top=last;
+        Profile::getInstance()->setIntForKey(top, "topscore");
+        Profile::getInstance()->store();
+        runAction(
+                  Sequence::create(
+                                   DelayTime::create(2),
+                                   CallFunc::create([this](){
+                      topScoreLbl->setScale(0.2);
+                      int last=Profile::getInstance()->intForKey("lastscore");
+                      char lastScore[64];sprintf(lastScore, "  TOP: %i", last);
+                      topScoreLbl->setString(lastScore);
+                      topScoreLbl->runAction(EaseElasticOut::create(ScaleTo::create(0.5, 1), 0.25));
+                  }),
+                                   NULL)
+                  );
+    }else
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Lose.wav");
+    }
+
+    
+}
+
 bool MenuGameover::init()
 {
     Layer::init();
@@ -29,41 +72,19 @@ bool MenuGameover::init()
     setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
     setTouchEnabled(true);
     
-    char topScore[64]; sprintf(topScore,  "  TOP: %i", Profile::getInstance()->intForKey("topscore"));
-    char lastScore[64];sprintf(lastScore, "SCORE: %i", Profile::getInstance()->intForKey("lastscore"));
-    
-    int last=Profile::getInstance()->intForKey("lastscore");
-    int top=Profile::getInstance()->intForKey("topscore");
-    
-
-
-    Label* score = Label::createWithTTF("", "victor-pixel.ttf", PPIntForKey("fontsize"));
-    score->setString(topScore);
+    Label* score = Label::createWithTTF("", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
+    score->setColor(Color3B(63,63,63));
     addChild(score);
     
-    Label* score2= Label::createWithTTF("", "victor-pixel.ttf", PPIntForKey("fontsize"));
-    score2->setString(lastScore);
+    topScoreLbl=score;
+    
+    Label* score2= Label::createWithTTF("", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
+    score2->setColor(Color3B(63,63,63));
     addChild(score2);
     
+    lastScoreLbl=score2;
     
-    if (last>top)
-    {
-        top=last;
-        Profile::getInstance()->setIntForKey(top, "topscore");
-        Profile::getInstance()->store();
-        runAction(
-                  Sequence::create(
-                                   DelayTime::create(1),
-                                   CallFunc::create([this,score](){
-                      score->setScale(0.2);
-                      int last=Profile::getInstance()->intForKey("lastscore");
-                      char lastScore[64];sprintf(lastScore, "SCORE: %i", last);
-                      score->setString(lastScore);
-                      score->runAction(EaseElasticOut::create(ScaleTo::create(0.5, 1), 0.25));
-                  }),
-                                   NULL)
-                  );
-    }
+    
     
     score->setAlignment(TextHAlignment::LEFT);
     score2->setAlignment(TextHAlignment::LEFT);
@@ -71,17 +92,18 @@ bool MenuGameover::init()
     score->setAnchorPoint(Point(0,0));
     score2->setAnchorPoint(Point(0,0));
     
-    score->setPosition(Point(getContentSize().width*0.4,
-                             getContentSize().height*0.7));
-    score2->setPosition(Point(getContentSize().width/2,
-                             getContentSize().height*0.7-score2->getContentSize().height));
+    score->setPosition(Point(getContentSize().width*0.2,
+                             getContentSize().height*0.75));
+    score2->setPosition(Point(getContentSize().width*0.2,
+                             getContentSize().height*0.75-PPIntForKey("fontsize")*0.8));
     
     
-    Label* title= Label::createWithTTF("GAME OVER", "victor-pixel.ttf",
+    Label* title= Label::createWithTTF("GAME OVER", "fonts/victor-pixel.ttf",
                                               PPIntForKey("fontsize"));
+    title->setColor(Color3B(63,63,63));
     addChild(title);
     title->setPosition(Point(getContentSize().width/2,
-                             getContentSize().height*0.8));
+                             getContentSize().height*0.9));
     
     Scale9Sprite * btnBg = Scale9Sprite::create("sq100.png");
     btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));

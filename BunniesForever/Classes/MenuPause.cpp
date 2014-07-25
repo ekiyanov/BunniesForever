@@ -27,8 +27,9 @@ bool MenuPause::init()
     setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
     setTouchEnabled(true);
 
-    Label* title= Label::createWithSystemFont("PAUSE", "HelveticaNeue",
-                                              40);
+    Label* title= Label::createWithTTF("PAUSE", "fonts/victor-pixel.ttf",
+                                              PPIntForKey("fontsize"));
+    title->setColor(Color3B(63,63,63));
     addChild(title);
     title->setPosition(Point(getContentSize().width/2,
                              getContentSize().height*0.8));
