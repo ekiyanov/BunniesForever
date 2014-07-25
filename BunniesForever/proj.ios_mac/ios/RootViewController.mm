@@ -29,6 +29,8 @@
 #import "GADBannerView.h"
 #import <iAd/iAd.h>
 
+#import <Social/Social.h>
+
 @interface RootViewController()<GADBannerViewDelegate,ADBannerViewDelegate>
 {
 }
@@ -50,6 +52,16 @@ void hideAd()
 {
     rootvc.adView.hidden=true;
     rootvc.iAdView.hidden=true;
+}
+
+void shareFBText(std::string text)
+{
+    SLComposeViewController* composer=[SLComposeViewController
+                                       composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [composer setInitialText:[NSString stringWithUTF8String:text.c_str()]];
+    [rootvc presentViewController:composer animated:YES completion:^{
+        ;
+    }];
 }
 
 @implementation RootViewController

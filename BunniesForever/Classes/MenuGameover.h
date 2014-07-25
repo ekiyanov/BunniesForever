@@ -16,6 +16,8 @@ class MenuGameover : public Layer
 {
     Label* topScoreLbl;
     Label* lastScoreLbl;
+    
+    int _lastScore;
 public:
     void draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated);
     bool init();

@@ -262,7 +262,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared//Users/EKiyanov/Documents/BunniesForeve
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/features.h \
  /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/Json/lib_json/writer.h \
  jni/../../cocos2d/cocos/audio/include/SimpleAudioEngine.h \
- jni/../../cocos2d/cocos/audio/include/Export.h
+ jni/../../cocos2d/cocos/audio/include/Export.h jni/hellocpp/AndroidJNI.h
 
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/Classes/MenuGameover.h:
 
@@ -791,3 +791,5 @@ jni/../../cocos2d/extensions/assets-manager/AssetsManager.h:
 jni/../../cocos2d/cocos/audio/include/SimpleAudioEngine.h:
 
 jni/../../cocos2d/cocos/audio/include/Export.h:
+
+jni/hellocpp/AndroidJNI.h:

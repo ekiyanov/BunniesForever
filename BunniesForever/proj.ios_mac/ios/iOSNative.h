@@ -11,5 +11,6 @@
 
 extern void showAd();
 extern void hideAd();
+extern void shareFBText(std::string text);
 
 #endif

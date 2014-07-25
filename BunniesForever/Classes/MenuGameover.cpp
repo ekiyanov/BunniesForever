@@ -13,6 +13,14 @@
 
 #include "SimpleAudioEngine.h"
 
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+#include "hellocpp/AndroidJNI.h"
+#endif
+
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+#include "iOSNative.h"
+#endif
+
 
 using namespace extension;
 void MenuGameover::draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
@@ -38,6 +46,8 @@ void MenuGameover::onEnter()
     
     topScoreLbl->setString(topScore);
     lastScoreLbl->setString(lastScore);
+    
+    _lastScore=last;
     
     if (last>top)
     {
@@ -117,8 +127,21 @@ bool MenuGameover::init()
     }
     
     MenuItemLabel* share = MenuItemLabel::create(btnBg,
-                                                  [](Ref*){
-                                                      NotificationCenter::getInstance()->postNotification("onShare");
+                                                  [this](Ref*){
+//                                                      NotificationCenter::getInstance()->postNotification("onShare");
+                                                      
+                                                      char textToShare[1024];
+                                                      sprintf(textToShare, "I've got %i score with 'Bunnies Forever'. Can yout beat me ? ",_lastScore);
+                                                      
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+                                                      shareFBText(textToShare);
+#endif
+                                                      
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
+                                                      shareFBText(textToShare);
+#endif
+                                                      
+                                                      
                                                   });
     
     btnBg = Scale9Sprite::create("sq100.png");

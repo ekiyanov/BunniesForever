@@ -58,7 +58,7 @@ extern "C"
     {
     	JniMethodInfo t;
     	        if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
-    	                        ,"shareFBText"
+    	                        ,"onShareFacebook"
     	                        ,"(Ljava/lang/String;)V"))
     	        {
     	            jstring StringArg1 = t.env->NewStringUTF(name);
