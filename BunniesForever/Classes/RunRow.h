@@ -26,6 +26,12 @@ class RunRow : public Layer
     int             _bonusHeight;
     
     bool            _paused;
+    
+    bool            _readysetgo;
+    
+    Label*          _taptojump;
+    
+    float _gamet;
 public:
     bool init(const Color3B & color);
     
@@ -42,5 +48,9 @@ public:
     void killAllObjects();
     
     void setPaused(bool paused);
+    
+    void setReadySetGo(bool paused);
+    
+    bool readySetGo(){return _readysetgo==false;}
 };
 #endif /* defined(__BunniesForever__RunRow__) */

@@ -3,6 +3,9 @@
 #include "IngameScene.h"
 #include "cocos-ext.h"
 #include "PlatformParams.h"
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+#include "AndroidJNI.h"
+#endif
 
 using namespace cocos2d;
 using namespace extension;
@@ -27,6 +30,15 @@ bool HelloWorld::init()
 {
     if ( !CCLayer::init() )
         return false;
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    hideAdmobJNI();
+#endif
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Click2.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Win.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("Lose.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("BonusGet.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("AchievementGet.mp3");
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("hero.plist");
     

@@ -47,8 +47,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
 #else
-    glview->setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
-    searchpath.push_back("android");
+    glview->setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
+//    searchpath.push_back("android");
     searchpath.push_back("iphonehd");
 #endif
     
@@ -58,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->setSearchPaths(searchpath);
     
     // turn on display FPS
-    director->setDisplayStats(true);
+    director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);

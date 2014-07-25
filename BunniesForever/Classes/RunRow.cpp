@@ -17,8 +17,6 @@ void RunRow::draw(Renderer *renderer, const kmMat4 &transform, bool transformUpd
 {
     renderer->render();
     
-    DrawPrimitives::drawSolidRect(Point::ZERO, Point(getContentSize().width,getContentSize().height),
-                                  Color4F(1,1,1,1.0F));
     DrawPrimitives::setDrawColor4B(0, 0, 0, 255-63);
     DrawPrimitives::drawLine(Point::ZERO, Point(getContentSize().width,0));
 }
@@ -41,6 +39,14 @@ bool RunRow::init(const Color3B& color)
     
     scheduleUpdate();
     
+    Label* taptojump = Label::createWithTTF("TAP TO JUMP", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
+    _taptojump = taptojump;
+    addChild(_taptojump);
+    _taptojump->setVisible(false);
+    _taptojump->setColor(color);
+    _taptojump->setAnchorPoint(Point::ANCHOR_MIDDLE);
+    
+    
     return true;
 }
 
@@ -59,6 +65,17 @@ bool RunRow::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
     Point pt=convertTouchToNodeSpace(touch);
     if (pt.x>0&&pt.y>0&&pt.x<getContentSize().width&&pt.y<getContentSize().height)
     {
+        if (_paused)  return false;
+        if (_readysetgo)
+        {
+            _readysetgo=false;
+            
+            _taptojump->runAction(Sequence::create(FadeOut::create(0.3),
+                                                   CallFunc::create([this](){_taptojump->setVisible(false);}),
+                                                   NULL));
+        }
+        
+        
         pCharacter->Jump();
         return true;
     }
@@ -68,7 +85,14 @@ bool RunRow::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 
 void RunRow::update(float dt)
 {
-    if (_paused) return;
+    if (_readysetgo)
+    {
+            _gamet+=dt;
+        
+        _taptojump->setScale(0.9+0.1*sin(_gamet));
+        
+    }
+    if (_paused || IngameScene::getInstance()->allSetDone()==false) return;
     updateCollision();
     
     updateGeneration(dt);
@@ -76,6 +100,7 @@ void RunRow::update(float dt)
 
 void RunRow::updateGeneration(float dt)
 {
+
     _nextGeneration-=dt;
     
     if (_nextGeneration<=0)
@@ -152,4 +177,21 @@ void RunRow::updateCollision()
     }
     ConsumedObjects.clear();
     
+}
+
+
+void RunRow::setReadySetGo(bool state)
+{
+    _taptojump->setVisible(true);
+ 
+    _gamet=0;
+    
+    _taptojump->setOpacity(255);
+    _taptojump->setPosition(getContentSize().width+_taptojump->getContentSize().width,
+                            _taptojump->getContentSize().height/2);
+    _taptojump->runAction(EaseElasticOut::create(MoveTo::create(0.5,
+                Point(getContentSize().width-_taptojump->getContentSize().width/2,
+                                                    _taptojump->getContentSize().height/2)),0.5));
+    
+     _readysetgo=state;
 }

@@ -9,6 +9,7 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
+                    hellocpp/AndroidJni.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
        	           ../../Classes/Json/lib_json/json_reader.cpp\

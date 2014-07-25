@@ -40,5 +40,7 @@ public:
     void onTapPause(Ref* );
     void onRestartGame(Ref*);
     void onResumeGame(Ref*);
+    
+    bool allSetDone();
 };
 #endif /* defined(__BunniesForever__IngameScene__) */

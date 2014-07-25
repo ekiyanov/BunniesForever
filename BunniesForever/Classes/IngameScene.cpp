@@ -13,6 +13,10 @@
 #include "Profile.h"
 #include "PlatformParams.h"
 
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+#include "AndroidJNI.h"
+#endif
+
 static IngameScene* __instance = 0;
 
 Scene* IngameScene::scene()
@@ -51,6 +55,8 @@ void IngameScene::addRow(const Color3B& color)
     
     _rows.pushBack(r);
     
+    
+    
     addChild(r);
     
     for (auto it : _rows)
@@ -66,6 +72,8 @@ void IngameScene::addRow(const Color3B& color)
         it->runAction(MoveTo::create(0.5, Point(0,newTopY)));
         
         it->killAllObjects();
+        
+        it->setReadySetGo(true);
     }
 }
 
@@ -105,6 +113,10 @@ void IngameScene::onGameOver(cocos2d::Ref *)
     }
     
     addChild(_GameoverMenu);
+    
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    showAdmobJNI();
+#endif
 }
 
 void IngameScene::onTapPause(cocos2d::Ref *)
@@ -122,6 +134,20 @@ void IngameScene::onTapPause(cocos2d::Ref *)
     }
     
     addChild(_PauseMenu);
+    
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    showAdmobJNI();
+#endif
+}
+
+bool IngameScene::allSetDone()
+{
+    for (auto r : _rows)
+    {
+        if (r->readySetGo()==false) return false;
+    }
+    
+    return true;
 }
 
 bool IngameScene::init()
@@ -137,7 +163,12 @@ bool IngameScene::init()
     
     _rows.pushBack(r);
     
-    MenuItemLabel* pausebtn=    MenuItemLabel::create(Sprite::create("PauseBtn.png"),
+    r->setReadySetGo(true);
+    
+    Label* II = Label::createWithTTF("II ", "fonts/victor-pixel.ttf",
+                                     PPIntForKey("fontsize")*1);
+    II->setColor(Color3B(63,63,63));
+    MenuItemLabel* pausebtn=    MenuItemLabel::create(II,
                           [this](Ref*){
                               onTapPause(0);
                           });
@@ -149,7 +180,7 @@ bool IngameScene::init()
                                 getContentSize().height-pausebtn->getContentSize().height/2));
     
     Label* score = Label::createWithTTF("0","fonts/victor-pixel.ttf",
-                                        PPIntForKey("fontsize")*0.7);
+                                        PPIntForKey("fontsize")*1);
     addChild(score);
     score->setPosition(Point(getContentSize().width/2,
                              getContentSize().height-score->getContentSize().height));
@@ -189,6 +220,10 @@ void IngameScene::onRestartGame(Ref*)
     _scoreLabel->setString("0");
     
     addRow(Color3B::RED);
+    
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    hideAdmobJNI();
+#endif
 }
 
 void IngameScene::onResumeGame(cocos2d::Ref *)
@@ -198,6 +233,10 @@ void IngameScene::onResumeGame(cocos2d::Ref *)
     
     if (_PauseMenu && _PauseMenu->getParent())
         _PauseMenu->removeFromParentAndCleanup(true);
+    
+#if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
+    hideAdmobJNI();
+#endif
 }
 
 Color3B IngameScene::getNextColor()
