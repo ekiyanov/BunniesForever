@@ -1,0 +1,7 @@
+{
+	"start":3,
+	"max":10,
+	"enemies":[
+		"sm1","sm2","sm2","sm2"
+	]
+}
