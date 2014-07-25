@@ -3,4 +3,5 @@
 "gravity":30,
 "mass":90,
 "jumpimpulse":800,
-"legfingerlength":2}
+"legfingerlength":2,
+"runspeed":500}
