@@ -53,4 +53,16 @@ extern "C"
             t.env->CallStaticVoidMethod(t.classID,t.methodID, StringArg1);
         }
     }
+
+    void shareFBText(const char* name)
+    {
+    	JniMethodInfo t;
+    	        if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
+    	                        ,"shareFBText"
+    	                        ,"(Ljava/lang/String;)V"))
+    	        {
+    	            jstring StringArg1 = t.env->NewStringUTF(name);
+    	            t.env->CallStaticVoidMethod(t.classID,t.methodID, StringArg1);
+    	        }
+    }
 }

@@ -9,5 +9,6 @@ extern "C"
     extern void setVisibleAdmobJNI(bool visible);
     extern void setAdmobVisibilityJNI(const char* name);
 
+    extern void shareFBText(const char* name);
 }
 #endif

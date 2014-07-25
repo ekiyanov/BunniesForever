@@ -31,25 +31,38 @@ import java.lang.reflect.Method;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.R;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+
+import com.facebook.*;
+import com.facebook.model.*;
+import com.facebook.widget.FacebookDialog;
+import com.facebook.widget.WebDialog;
+import com.facebook.widget.WebDialog.OnCompleteListener;
+
 public class AppActivity extends Cocos2dxActivity {
 	static AdView adView;
-	static Activity me;
+	static AppActivity me;
 	final String ADMOB_ID="ca-app-pub-8430244079488991/3538408247";
+	
+	final String FBAPP_ID="654394264657097";
 
 	// Helper get display screen to avoid deprecated function use
 	private Point getDisplaySize(Display d)
@@ -98,33 +111,33 @@ public class AppActivity extends Cocos2dxActivity {
 	    protected void onCreate(Bundle savedInstanceState){
 	    	super.onCreate(savedInstanceState);
 	    	
-
-adView = new AdView(this);
-adView.setAdSize(AdSize.BANNER);
-adView.setAdUnitId(ADMOB_ID);
-
-
-int width = getDisplaySize(getWindowManager().getDefaultDisplay()).x;
-
-
-LinearLayout.LayoutParams adParams = new LinearLayout.LayoutParams(
-width,
-LinearLayout.LayoutParams.WRAP_CONTENT);
-
-
-AdRequest adRequest = new AdRequest.Builder()
-.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-.addTestDevice("HASH_DEVICE_ID")
-.build();
-
-RelativeLayout relativeLayout=new RelativeLayout(this);
-
-	mFramelayout.addView(relativeLayout);
-
-
-RelativeLayout.LayoutParams adViewParams = new RelativeLayout.LayoutParams(
-	    AdView.LayoutParams.WRAP_CONTENT,
-	    AdView.LayoutParams.WRAP_CONTENT);
+			
+			adView = new AdView(this);
+			adView.setAdSize(AdSize.BANNER);
+			adView.setAdUnitId(ADMOB_ID);
+			
+			
+			int width = getDisplaySize(getWindowManager().getDefaultDisplay()).x;
+			
+			
+			LinearLayout.LayoutParams adParams = new LinearLayout.LayoutParams(
+			width,
+			LinearLayout.LayoutParams.WRAP_CONTENT);
+			
+			
+			AdRequest adRequest = new AdRequest.Builder()
+			.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+			.addTestDevice("HASH_DEVICE_ID")
+			.build();
+			
+			RelativeLayout relativeLayout=new RelativeLayout(this);
+			
+				mFramelayout.addView(relativeLayout);
+			
+			
+			RelativeLayout.LayoutParams adViewParams = new RelativeLayout.LayoutParams(
+				    AdView.LayoutParams.WRAP_CONTENT,
+				    AdView.LayoutParams.WRAP_CONTENT);
 	//important
 	adViewParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 
@@ -139,6 +152,11 @@ relativeLayout.addView(adView, adViewParams);
             me = this;
             
             adView.setVisibility(View.VISIBLE);
+            
+            
+            // Facebook
+            uiHelper = new UiLifecycleHelper(this, null);
+            uiHelper.onCreate(savedInstanceState);
 	    }
 	    
 	static void showAdmobJNI(){
@@ -199,4 +217,122 @@ relativeLayout.addView(adView, adViewParams);
 				}
 			});
 	    }
+	 
+	 
+	 // FB
+	 
+	 private UiLifecycleHelper uiHelper;
+	 
+	 @Override
+	 protected void onResume() {
+	     super.onResume();
+	     uiHelper.onResume();
+	 }
+
+	 @Override
+	 protected void onSaveInstanceState(Bundle outState) {
+	     super.onSaveInstanceState(outState);
+	     uiHelper.onSaveInstanceState(outState);
+	 }
+
+	 @Override
+	 public void onPause() {
+	     super.onPause();
+	     uiHelper.onPause();
+	 }
+
+	 @Override
+	 public void onDestroy() {
+	     super.onDestroy();
+	     uiHelper.onDestroy();
+	 }
+	 
+	 @Override
+	 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	     super.onActivityResult(requestCode, resultCode, data);
+
+	     uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+	         @Override
+	         public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+	             Log.e("Activity", String.format("Error: %s", error.toString()));
+	         }
+
+	         @Override
+	         public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+	             Log.i("Activity", "Success!");
+	         }
+	     });
+	 }
+	 
+	 private void publishFeedDialog(final String text) {
+		    Bundle params = new Bundle();
+		    params.putString("name", "Bunnies Forever");
+		    params.putString("caption", "Check out my score");
+		    params.putString("description", "text");
+		    params.putString("link", "https://developers.facebook.com/android");
+
+		    WebDialog feedDialog = (
+		        new WebDialog.FeedDialogBuilder(me,
+		            Session.getActiveSession(),
+		            params)).setOnCompleteListener
+		        (new OnCompleteListener() {
+
+		            @Override
+		            public void onComplete(Bundle values,
+		                FacebookException error) {
+
+		                if (error == null) {
+		                    // When the story is posted, echo the success
+		                    // and the post Id.
+		                    final String postId = values.getString("post_id");
+		                    if (postId != null) {
+		                        Toast.makeText(me,
+		                            "Posted story, id: "+postId,
+		                            Toast.LENGTH_SHORT).show();
+		                    } else {
+		                        // User clicked the Cancel button
+		                        Toast.makeText(me.getApplicationContext(), 
+		                            "Publish cancelled", 
+		                            Toast.LENGTH_SHORT).show();
+		                    }
+		                } else if (error instanceof FacebookOperationCanceledException) {
+		                    // User clicked the "x" button
+		                    Toast.makeText(me.getApplicationContext(), 
+		                        "Publish cancelled", 
+		                        Toast.LENGTH_SHORT).show();
+		                } else {
+		                    // Generic, ex: network error
+		                    Toast.makeText(me.getApplicationContext(), 
+		                        "Error posting story", 
+		                        Toast.LENGTH_SHORT).show();
+		                }
+		            }
+
+		        })
+		        .build();
+		    feedDialog.show();
+		}
+	 
+	 static void onShareFacebook(final String shareText)
+	 {
+		 me.runOnUiThread(new Runnable(){
+		 @Override 
+		 public void run(){
+	         
+			 if (FacebookDialog.canPresentShareDialog(me.getApplicationContext(), 
+                     FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) 
+			 {
+				 // Publish the post using the Share Dialog
+				 FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(me)
+				 .setLink("https://developers.facebook.com/android").setDescription(shareText)
+				 .build();
+				 me.uiHelper.trackPendingDialogCall(shareDialog.present());
+				 
+			 } else {
+				 me.publishFeedDialog(shareText);
+			 }
+		 }
+		 });
+	 }
+	 
 }
