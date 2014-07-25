@@ -179,8 +179,11 @@ void IngameScene::onRestartGame(Ref*)
         it->removeFromParentAndCleanup(true);
     _rows.clear();
     
-    if (_GameoverMenu)
+    if (_GameoverMenu && _GameoverMenu->getParent())
         _GameoverMenu->removeFromParentAndCleanup(true);
+    
+    if (_PauseMenu && _PauseMenu->getParent())
+    _PauseMenu->removeFromParentAndCleanup(true);
     
     _score=0;
     _scoreLabel->setString("0");
@@ -193,7 +196,7 @@ void IngameScene::onResumeGame(cocos2d::Ref *)
     for (auto it : _rows)
         it->setPaused(false);
     
-    if (_PauseMenu)
+    if (_PauseMenu && _PauseMenu->getParent())
         _PauseMenu->removeFromParentAndCleanup(true);
 }
 

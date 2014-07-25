@@ -92,6 +92,7 @@ Character* Character::CharacterWithColor(const Color3B& color){
 }
 void Character::draw( Renderer* renderer, const kmMat4 &transform, bool transformUpdated)
 {
+    return;
     renderer->render();
     DrawPrimitives::setDrawColor4B(100, 100, 100, 255);
     DrawPrimitives::drawRect(Point::ZERO, Point(getContentSize().width,getContentSize().height));

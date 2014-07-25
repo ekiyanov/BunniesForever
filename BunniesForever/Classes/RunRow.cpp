@@ -18,14 +18,14 @@ void RunRow::draw(Renderer *renderer, const kmMat4 &transform, bool transformUpd
     renderer->render();
     
     DrawPrimitives::drawSolidRect(Point::ZERO, Point(getContentSize().width,getContentSize().height),
-                                  Color4F(0.8,0.8,0.8,1.0F));
-    DrawPrimitives::setDrawColor4B(0, 0, 0, 1);
+                                  Color4F(1,1,1,1.0F));
+    DrawPrimitives::setDrawColor4B(0, 0, 0, 255-63);
     DrawPrimitives::drawLine(Point::ZERO, Point(getContentSize().width,0));
 }
 
 bool RunRow::init(const Color3B& color)
 {
-    setContentSize(Size(Director::getInstance()->getWinSize().width,200));
+    setContentSize(Size(Director::getInstance()->getWinSize().width,PPIntForKey("rowheight")));
     setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
     setTouchEnabled(true);
     
@@ -109,6 +109,9 @@ void RunRow::updateGeneration(float dt)
             rowObject->setScale(scale);
             
             RowObject* obj=RowObjectFactory::getInstance()->ObjectForKey("bonus", "");
+            scale = _bonusHeight/obj->getContentSize().height;
+            obj->setScale(scale);
+            
             obj->setPosition(getContentSize().width,rowObject->getContentSize().height);
             _rowObjects.pushBack(obj);
             addChild(obj);
