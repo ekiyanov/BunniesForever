@@ -7,15 +7,29 @@ using namespace cocos2d;
 
 extern "C"
 {
-    void showAdmobJNI(){
-    	JniMethodInfo t;
-		if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
-						,"showAdmobJNI"
-						,"()V"))
-		{
-			t.env->CallStaticVoidMethod(t.classID,t.methodID);
-		}
-    }
+
+	void rateus()
+	{
+		JniMethodInfo t;
+				if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
+								,"rateus"
+								,"()V"))
+				{
+					t.env->CallStaticVoidMethod(t.classID,t.methodID);
+				}
+	}
+
+	void significantEvent()
+	{
+		JniMethodInfo t;
+				if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
+								,"significantEvent"
+								,"()V"))
+				{
+					t.env->CallStaticVoidMethod(t.classID,t.methodID);
+				}
+	}
+
     void hideAdmobJNI(){
     	JniMethodInfo t;
 		if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"

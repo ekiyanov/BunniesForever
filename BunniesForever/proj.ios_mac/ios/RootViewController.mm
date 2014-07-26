@@ -28,7 +28,7 @@
 #import "CCEAGLView.h"
 #import "GADBannerView.h"
 #import <iAd/iAd.h>
-
+#import "Appirater.h"
 #import <Social/Social.h>
 
 @interface RootViewController()<GADBannerViewDelegate,ADBannerViewDelegate>
@@ -41,6 +41,16 @@
 @end
 
 RootViewController* rootvc=NULL;
+
+void rateus()
+{
+    [Appirater rateApp];
+}
+
+void significantEvent()
+{
+    [Appirater userDidSignificantEvent:YES];
+}
 
 void showAd()
 {
@@ -151,6 +161,12 @@ void shareFBText(std::string text)
     _adView.delegate=self;
     
 
+    [Appirater setAppId:@"903504879"];
+    [Appirater setDaysUntilPrompt:1];
+    [Appirater setDebug:YES];
+    [Appirater setSignificantEventsUntilPrompt:10];
+    [Appirater setOpenInAppStore:false];
+    [Appirater appLaunched:YES];
     
 }
 

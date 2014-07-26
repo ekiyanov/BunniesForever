@@ -10,5 +10,8 @@ extern "C"
     extern void setAdmobVisibilityJNI(const char* name);
 
     extern void shareFBText(const char* name);
+
+    extern void rateus();
+    extern void significantEvent();
 }
 #endif
