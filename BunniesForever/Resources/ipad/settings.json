@@ -1,7 +1,8 @@
 {"fontsize":60,"boxheight":60,"bonusheight":60,"characterheight":60,
-"rescuebarwidth":60,"rowheight":200,
+"rescuebarwidth":70,"rowheight":200,
 "gravity":30,
 "mass":90,
-"jumpimpulse":800,
-"legfingerlength":2,
-"runspeed":500}
+"jumpimpulse":750,
+"legfingerlength":3,
+"runspeed":540,
+"scorex":50}
