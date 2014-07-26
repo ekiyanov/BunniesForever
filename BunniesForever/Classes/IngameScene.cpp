@@ -115,24 +115,30 @@ void IngameScene::onGameOver(cocos2d::Ref *)
     
     Profile::getInstance()->setIntForKey(_score,"lastscore");
     Profile::getInstance()->store();
-    
-    if (_GameoverMenu==0)
-    {
-        MenuGameover* gomenu=new MenuGameover();
-        gomenu->init();
-        _GameoverMenu=gomenu;
-    }
-    
-    addChild(_GameoverMenu);
-    
     CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     
+    runAction(Sequence::create(DelayTime::create(0.8),
+                               CallFunc::create([this](){
+        
+        if (_GameoverMenu==0)
+        {
+            MenuGameover* gomenu=new MenuGameover();
+            gomenu->init();
+            _GameoverMenu=gomenu;
+        }
+        
+        addChild(_GameoverMenu);
+        
+        
+        
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
-    showAdmobJNI();
+        showAdmobJNI();
 #endif
 #if (CC_TARGET_PLATFORM==CC_PLATFORM_IOS)
-    showAd();
+        showAd();
 #endif
+        
+    }),NULL));
 }
 
 void IngameScene::onTapPause(cocos2d::Ref *)

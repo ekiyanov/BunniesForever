@@ -79,6 +79,7 @@ bool Character::initWithColor(const Color3B& color)
     
     vSpeed=0;
     
+    isDead=false;
     
     _jumpSprite=jump;
     _jumpAnim=animjump;
@@ -106,7 +107,7 @@ void Character::update(float dt)
 {
     vSpeed-=kGravity*kMass*dt;
     setPositionY(getPositionY()+vSpeed*dt);
-    if (getPositionY()<0)
+    if (isDead==false && getPositionY()<0)
     {
         setPositionY(0);
         vSpeed=0;
@@ -141,7 +142,22 @@ void Character::doDamage(int damage)
 {
     if (damage>0)
     {
+        isDead=true;
+        vSpeed=kJumpImpulse;
+        retain();
+        Point world = convertToWorldSpace(Point::ZERO);
+        Point inParent = getParent()->getParent()->convertToNodeSpace(world);
+        
+        Node * parent = getParent()->getParent();
+        removeFromParentAndCleanup(false);
+        parent->addChild(this);
+        
+        release();
+        setPosition(inParent);
+        
         NotificationCenter::getInstance()->postNotification("onGameover");
+        runAction(RotateBy::create(1, 180));
+
         return;
         if (_blinkAction)
             stopAction(_blinkAction);

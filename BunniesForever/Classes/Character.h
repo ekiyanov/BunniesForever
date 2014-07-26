@@ -24,6 +24,8 @@ class Character : public Node
     
     Sprite* _jumpSprite;
     Animation* _jumpAnim;
+    
+    bool isDead;
 public:
     
     static Character* CharacterWithColor(const Color3B& color);
