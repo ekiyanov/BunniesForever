@@ -367,8 +367,8 @@ relativeLayout.addView(adView, adViewParams);
 		    	Bundle params = new Bundle();
 			    params.putString("name", "Bunnies Forever");
 			    params.putString("caption", "Check out my score");
-			    params.putString("description", "text");
-			    params.putString("link", "https://developers.facebook.com/android");
+			    params.putString("description", text);
+			    params.putString("link", String.format("market://details?id=%s", me.getPackageName()));
 
 			    WebDialog feedDialog = (
 			        new WebDialog.FeedDialogBuilder(me,
@@ -425,7 +425,7 @@ relativeLayout.addView(adView, adViewParams);
 			 {
 				 // Publish the post using the Share Dialog
 				 FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(me)
-				 .setLink("https://developers.facebook.com/android").setDescription(shareText)
+				 .setLink(String.format("market://details?id=%s", me.getPackageName())).setDescription(shareText)
 				 .build();
 				 me.uiHelper.trackPendingDialogCall(shareDialog.present());
 				 

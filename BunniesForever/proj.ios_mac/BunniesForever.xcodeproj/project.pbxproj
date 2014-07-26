@@ -120,6 +120,8 @@
 		589F777B190CE38200A3E8D9 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 589F7769190CE38200A3E8D9 /* json_writer.cpp */; };
 		589F777C190CE38200A3E8D9 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 589F776B190CE38200A3E8D9 /* sconscript */; };
 		589F777D190CE38200A3E8D9 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 589F776B190CE38200A3E8D9 /* sconscript */; };
+		58B067951983820F00BC0C6E /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 58B067931983820F00BC0C6E /* iTunesArtwork */; };
+		58B067961983820F00BC0C6E /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 58B067941983820F00BC0C6E /* iTunesArtwork@2x */; };
 		58F3943219570BCE0022C478 /* NodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F3943019570BCE0022C478 /* NodeFactory.cpp */; };
 		58F394371957208E0022C478 /* JSONUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F394351957208E0022C478 /* JSONUtils.cpp */; };
 		58F3943B195721730022C478 /* Profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F39439195721730022C478 /* Profile.cpp */; };
@@ -436,6 +438,8 @@
 		589F776B190CE38200A3E8D9 /* sconscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sconscript; sourceTree = "<group>"; };
 		589F776C190CE38200A3E8D9 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
 		589F776D190CE38200A3E8D9 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		58B067931983820F00BC0C6E /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ios/iTunesArtwork; sourceTree = SOURCE_ROOT; };
+		58B067941983820F00BC0C6E /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "ios/iTunesArtwork@2x"; sourceTree = SOURCE_ROOT; };
 		58F3943019570BCE0022C478 /* NodeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeFactory.cpp; path = ../Classes/NodeFactory.cpp; sourceTree = "<group>"; };
 		58F3943119570BCE0022C478 /* NodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeFactory.h; path = ../Classes/NodeFactory.h; sourceTree = "<group>"; };
 		58F394351957208E0022C478 /* JSONUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSONUtils.cpp; path = ../Classes/JSONUtils.cpp; sourceTree = "<group>"; };
@@ -653,6 +657,8 @@
 		5087E77117EB970100C73F5D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				58B067931983820F00BC0C6E /* iTunesArtwork */,
+				58B067941983820F00BC0C6E /* iTunesArtwork@2x */,
 				583F73281982EC5C001C4814 /* AppIcon29x29.png */,
 				583F73291982EC5C001C4814 /* AppIcon29x29@2x.png */,
 				583F732A1982EC5C001C4814 /* AppIcon40x40.png */,
@@ -1002,6 +1008,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				588BEFFB190CFBAB009F4FDA /* Default.png in Resources */,
+				58B067951983820F00BC0C6E /* iTunesArtwork in Resources */,
 				588BF06D190D1AC3009F4FDA /* ipadhd in Resources */,
 				5858E1AB19834A3F000AE167 /* AppiraterLocalizable.strings in Resources */,
 				588BEFFA190CFBAB009F4FDA /* Default-Landscape@2x.png in Resources */,
@@ -1020,6 +1027,7 @@
 				588BF06B190D1AC3009F4FDA /* fonts in Resources */,
 				583F733F1982EC5C001C4814 /* AppIcon60x60@2x.png in Resources */,
 				58F39441195734760022C478 /* shared in Resources */,
+				58B067961983820F00BC0C6E /* iTunesArtwork@2x in Resources */,
 				589F7778190CE38200A3E8D9 /* json_valueiterator.inl in Resources */,
 				583F73381982EC5C001C4814 /* AppIcon40x40.png in Resources */,
 				589F777C190CE38200A3E8D9 /* sconscript in Resources */,
