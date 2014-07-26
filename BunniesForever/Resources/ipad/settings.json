@@ -4,4 +4,5 @@
 "mass":90,
 "jumpimpulse":800,
 "legfingerlength":2,
-"runspeed":500}
+"runspeed":500,
+"scorex":50}
