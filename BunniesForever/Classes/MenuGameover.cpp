@@ -77,6 +77,9 @@ void MenuGameover::onEnter()
                   );
     }else
     {
+        _menu->runAction(EaseElasticOut::create(MoveTo::create(2, Point(getContentSize().width/2,
+                                                                        getContentSize().height/2)), 1));
+        
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Lose.wav");
     }
 
@@ -110,9 +113,9 @@ bool MenuGameover::init()
     score->setAnchorPoint(Point(0,0));
     score2->setAnchorPoint(Point(0,0));
     
-    score->setPosition(Point(getContentSize().width*0.2,
+    score->setPosition(Point(getContentSize().width*0.2+PPIntForKey("scorex"),
                              getContentSize().height*0.75));
-    score2->setPosition(Point(getContentSize().width*0.2,
+    score2->setPosition(Point(getContentSize().width*0.2+PPIntForKey("scorex"),
                              getContentSize().height*0.75-PPIntForKey("fontsize")*0.8));
     
     

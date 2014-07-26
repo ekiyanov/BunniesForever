@@ -163,7 +163,7 @@ void shareFBText(std::string text)
 
     [Appirater setAppId:@"903504879"];
     [Appirater setDaysUntilPrompt:1];
-    [Appirater setDebug:YES];
+    [Appirater setDebug:NO];
     [Appirater setSignificantEventsUntilPrompt:10];
     [Appirater setOpenInAppStore:false];
     [Appirater appLaunched:YES];
