@@ -28,6 +28,8 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 
+#import "Flurry.h"
+
 @implementation AppController
 
 #pragma mark -
@@ -38,6 +40,9 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
+    // Replace YOUR_API_KEY with the api key in the downloaded package
+    [Flurry startSession:@"KFFY7QHHK8M4T7BN8VN7"];
+    
     /*
     NSAttributedString* str=[[NSAttributedString alloc] initWithString:@"Hello"];
     

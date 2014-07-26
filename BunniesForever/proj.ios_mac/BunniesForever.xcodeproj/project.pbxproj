@@ -80,6 +80,8 @@
 		5858E1AB19834A3F000AE167 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5858E18519834A3F000AE167 /* AppiraterLocalizable.strings */; };
 		5858E1AC19834A3F000AE167 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 5858E18819834A3F000AE167 /* CHANGELOG.md */; };
 		5858E1AD19834A3F000AE167 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5858E19D19834A3F000AE167 /* README.md */; };
+		586B8D421983692000334DEA /* libFlurry_5.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 586B8D411983692000334DEA /* libFlurry_5.2.0.a */; };
+		586B8D461983697900334DEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586B8D451983697900334DEA /* Security.framework */; };
 		58849B3319820689006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
 		58849B39198206A7006A5346 /* RunRow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B37198206A7006A5346 /* RunRow.cpp */; };
 		58849B3A198206B4006A5346 /* IngameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58849B3119820689006A5346 /* IngameScene.cpp */; };
@@ -387,6 +389,9 @@
 		5858E1A519834A3F000AE167 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
 		5858E1A619834A3F000AE167 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
 		5858E1A719834A3F000AE167 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
+		586B8D401983692000334DEA /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		586B8D411983692000334DEA /* libFlurry_5.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.2.0.a; sourceTree = "<group>"; };
+		586B8D451983697900334DEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		58849B3119820689006A5346 /* IngameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IngameScene.cpp; path = ../Classes/IngameScene.cpp; sourceTree = "<group>"; };
 		58849B3219820689006A5346 /* IngameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngameScene.h; path = ../Classes/IngameScene.h; sourceTree = "<group>"; };
 		58849B37198206A7006A5346 /* RunRow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RunRow.cpp; path = ../Classes/RunRow.cpp; sourceTree = "<group>"; };
@@ -453,11 +458,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				586B8D461983697900334DEA /* Security.framework in Frameworks */,
 				5858E17C1982FC17000AE167 /* Social.framework in Frameworks */,
 				5858E1781982ADD6000AE167 /* CoreTelephony.framework in Frameworks */,
 				5858E1761982AC6A000AE167 /* iAd.framework in Frameworks */,
 				5858E1731982A95E000AE167 /* SystemConfiguration.framework in Frameworks */,
 				5858E1711982A955000AE167 /* StoreKit.framework in Frameworks */,
+				586B8D421983692000334DEA /* libFlurry_5.2.0.a in Frameworks */,
 				5858E16F1982A94D000AE167 /* MessageUI.framework in Frameworks */,
 				5858E16D1982A937000AE167 /* AdSupport.framework in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
@@ -579,6 +586,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				586B8D3F1983692000334DEA /* Flurry */,
 				5858E17F19834A3E000AE167 /* appirater-master */,
 				5858E1461982A8DE000AE167 /* GoogleMobileAdsSdkiOS-6.10.0 */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -595,6 +603,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				586B8D451983697900334DEA /* Security.framework */,
 				5858E17B1982FC17000AE167 /* Social.framework */,
 				5858E1771982ADD6000AE167 /* CoreTelephony.framework */,
 				5858E1751982AC6A000AE167 /* iAd.framework */,
@@ -701,6 +710,15 @@
 				5858E19D19834A3F000AE167 /* README.md */,
 			);
 			path = "appirater-master";
+			sourceTree = "<group>";
+		};
+		586B8D3F1983692000334DEA /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				586B8D401983692000334DEA /* Flurry.h */,
+				586B8D411983692000334DEA /* libFlurry_5.2.0.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		58849B3619820690006A5346 /* Ingame */ = {
@@ -1215,7 +1233,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
 				PROVISIONING_PROFILE = "9932EE47-4193-459B-9E3A-B42CD899853D";
@@ -1247,7 +1268,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
 				PROVISIONING_PROFILE = "9932EE47-4193-459B-9E3A-B42CD899853D";

@@ -39,6 +39,17 @@ extern "C"
 			t.env->CallStaticVoidMethod(t.classID,t.methodID);
 		}
     }
+
+    void showAdmobJNI(){
+        	JniMethodInfo t;
+    		if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"
+    						,"showAdmobJNI"
+    						,"()V"))
+    		{
+    			t.env->CallStaticVoidMethod(t.classID,t.methodID);
+    		}
+        }
+
     void setAdmobVisibleJNI(int number){
 		JniMethodInfo t;
 		if (JniHelper::getStaticMethodInfo(t, "org.cocos2dx.cpp/AppActivity"

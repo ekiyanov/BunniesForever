@@ -53,6 +53,9 @@ void MenuGameover::onEnter()
     
     if (last>top)
     {
+//        if (last>top)
+            _menu->setPositionY(-getContentSize().height/2);
+        
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Win.mp3");
         top=last;
         Profile::getInstance()->setIntForKey(top, "topscore");
@@ -66,6 +69,9 @@ void MenuGameover::onEnter()
                       char lastScore[64];sprintf(lastScore, "  TOP: %i", last);
                       topScoreLbl->setString(lastScore);
                       topScoreLbl->runAction(EaseElasticOut::create(ScaleTo::create(0.5, 1), 0.25));
+                      
+                      _menu->runAction(EaseElasticOut::create(MoveTo::create(2, Point(getContentSize().width/2,
+                                                                                      getContentSize().height/2)), 1));
                   }),
                                    NULL)
                   );
@@ -191,10 +197,10 @@ bool MenuGameover::init()
     rate->setPosition(pt.x+rate->getContentSize().width/2+5,pt.y+5+rate->getContentSize().height/2);
     restart->setPosition(pt.x,pt.y-5-restart->getContentSize().height/2);
     
-//    menu->alignItemsInColumns (2,1, NULL);
-//    menu->alignItemsVerticallyWithPadding(getContentSize().height*0.02);
-    
     addChild(menu);
+    
+    _menu=menu;
+
     
     return true;
 }

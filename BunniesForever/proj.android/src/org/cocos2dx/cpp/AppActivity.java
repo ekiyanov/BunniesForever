@@ -53,7 +53,7 @@ import com.google.android.gms.ads.AdView;
 
 
 import com.sbstrm.appirater.Appirater;
-
+import com.flurry.android.FlurryAgent;
 
 import com.facebook.*;
 import com.facebook.model.*;
@@ -113,17 +113,47 @@ public class AppActivity extends Cocos2dxActivity {
 
 	    static void significantEvent() 
 	    {
-	    	Appirater.significantEvent(me);
+	    	me.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					Appirater.significantEvent(me);
+				}
+			});
+	    	
+	    	
 	    }
 	    
 	    static void rateus()
 	    {
-	    	Appirater.rateApp(me);
+	    	
+	    	me.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					Appirater.rateApp(me);
+				}
+			});
+	    	
+	    	
+	    }
+	    
+	    @Override
+	    protected void onStart()
+	    {
+		    super.onStart();
+		    FlurryAgent.onStartSession(this, "QC2BSN8DH4GM74MDBZXJ");
+	    }
+	    
+	    @Override
+	    protected void onStop()
+	    {
+		    super.onStop();	
+		    FlurryAgent.onEndSession(this);
 	    }
 	    
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState){
 	    	super.onCreate(savedInstanceState);
+	    	
 	    	
 	    	Appirater.appLaunched(this);
 	    	
