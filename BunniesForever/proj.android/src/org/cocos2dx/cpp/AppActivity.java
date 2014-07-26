@@ -28,6 +28,7 @@ package org.cocos2dx.cpp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
@@ -50,6 +51,9 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+
+import com.sbstrm.appirater.Appirater;
+import com.flurry.android.FlurryAgent;
 
 import com.facebook.*;
 import com.facebook.model.*;
@@ -107,9 +111,51 @@ public class AppActivity extends Cocos2dxActivity {
 	        }
 	    }
 
+	    static void significantEvent() 
+	    {
+	    	me.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					Appirater.significantEvent(me);
+				}
+			});
+	    	
+	    	
+	    }
+	    
+	    static void rateus()
+	    {
+	    	
+	    	me.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					Appirater.rateApp(me);
+				}
+			});
+	    	
+	    	
+	    }
+	    
+	    @Override
+	    protected void onStart()
+	    {
+		    super.onStart();
+		    FlurryAgent.onStartSession(this, "QC2BSN8DH4GM74MDBZXJ");
+	    }
+	    
+	    @Override
+	    protected void onStop()
+	    {
+		    super.onStop();	
+		    FlurryAgent.onEndSession(this);
+	    }
+	    
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState){
 	    	super.onCreate(savedInstanceState);
+	    	
+	    	
+	    	Appirater.appLaunched(this);
 	    	
 			
 			adView = new AdView(this);
@@ -265,52 +311,107 @@ relativeLayout.addView(adView, adViewParams);
 	 }
 	 
 	 private void publishFeedDialog(final String text) {
-		    Bundle params = new Bundle();
-		    params.putString("name", "Bunnies Forever");
-		    params.putString("caption", "Check out my score");
-		    params.putString("description", "text");
-		    params.putString("link", "https://developers.facebook.com/android");
+		 
+		 Session session = Session.getActiveSession();
+		 
+		 if (session==null)
+		 {
+			 // start Facebook Login
+			    Session.openActiveSession(me, true, new Session.StatusCallback() {
 
-		    WebDialog feedDialog = (
-		        new WebDialog.FeedDialogBuilder(me,
-		            Session.getActiveSession(),
-		            params)).setOnCompleteListener
-		        (new OnCompleteListener() {
+			      // callback when session changes state
+			      @Override
+			      public void call(Session session, SessionState state, Exception exception) {
+			        if (session.isOpened()) {
 
-		            @Override
-		            public void onComplete(Bundle values,
-		                FacebookException error) {
+			        	me.publishFeedDialog(text);
+			        }
+			      }
+			    });
+			    
+			    return;
+		 }
 
-		                if (error == null) {
-		                    // When the story is posted, echo the success
-		                    // and the post Id.
-		                    final String postId = values.getString("post_id");
-		                    if (postId != null) {
-		                        Toast.makeText(me,
-		                            "Posted story, id: "+postId,
-		                            Toast.LENGTH_SHORT).show();
-		                    } else {
-		                        // User clicked the Cancel button
-		                        Toast.makeText(me.getApplicationContext(), 
-		                            "Publish cancelled", 
-		                            Toast.LENGTH_SHORT).show();
-		                    }
-		                } else if (error instanceof FacebookOperationCanceledException) {
-		                    // User clicked the "x" button
-		                    Toast.makeText(me.getApplicationContext(), 
-		                        "Publish cancelled", 
-		                        Toast.LENGTH_SHORT).show();
-		                } else {
-		                    // Generic, ex: network error
-		                    Toast.makeText(me.getApplicationContext(), 
-		                        "Error posting story", 
-		                        Toast.LENGTH_SHORT).show();
-		                }
-		            }
+		 if (session.isOpened()==false)
+		 {
+			 Session.openActiveSession(me, true, new Session.StatusCallback() {
 
-		        })
-		        .build();
-		    feedDialog.show();
+			      // callback when session changes state
+			      @Override
+			      public void call(Session session, SessionState state, Exception exception) {
+			        if (session.isOpened()) {
+
+			        	me.publishFeedDialog(text);
+			        }
+			      }
+			    });
+			 
+			 return;
+		 }
+		 
+		    if (session != null){
+		    	
+		    	 // Check for publish permissions    
+		        List<String> permissions = session.getPermissions();
+		        if (!permissions.contains("publish_actions")) {
+//		            pendingPublishReauthorization = true;
+		            Session.NewPermissionsRequest newPermissionsRequest = new Session
+		                    .NewPermissionsRequest(me, "publish_actions");
+		            session.requestNewPublishPermissions(newPermissionsRequest);
+		        
+		        
+		            return;
+		        }
+		        
+		        
+		    	Bundle params = new Bundle();
+			    params.putString("name", "Bunnies Forever");
+			    params.putString("caption", "Check out my score");
+			    params.putString("description", text);
+			    params.putString("link", String.format("market://details?id=%s", me.getPackageName()));
+
+			    WebDialog feedDialog = (
+			        new WebDialog.FeedDialogBuilder(me,
+			            Session.getActiveSession(),
+			            params)).setOnCompleteListener
+			        (new OnCompleteListener() {
+
+			            @Override
+			            public void onComplete(Bundle values,
+			                FacebookException error) {
+
+			                if (error == null) {
+			                    // When the story is posted, echo the success
+			                    // and the post Id.
+			                    final String postId = values.getString("post_id");
+			                    if (postId != null) {
+			                        Toast.makeText(me,
+			                            "Posted story, id: "+postId,
+			                            Toast.LENGTH_SHORT).show();
+			                    } else {
+			                        // User clicked the Cancel button
+			                        Toast.makeText(me.getApplicationContext(), 
+			                            "Publish cancelled", 
+			                            Toast.LENGTH_SHORT).show();
+			                    }
+			                } else if (error instanceof FacebookOperationCanceledException) {
+			                    // User clicked the "x" button
+			                    Toast.makeText(me.getApplicationContext(), 
+			                        "Publish cancelled", 
+			                        Toast.LENGTH_SHORT).show();
+			                } else {
+			                    // Generic, ex: network error
+			                    Toast.makeText(me.getApplicationContext(), 
+			                        "Error posting story", 
+			                        Toast.LENGTH_SHORT).show();
+			                }
+			            }
+
+			        })
+			        .build();
+			    feedDialog.show();		    	
+		    }
+		    
 		}
 	 
 	 static void onShareFacebook(final String shareText)
@@ -324,7 +425,7 @@ relativeLayout.addView(adView, adViewParams);
 			 {
 				 // Publish the post using the Share Dialog
 				 FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(me)
-				 .setLink("https://developers.facebook.com/android").setDescription(shareText)
+				 .setLink(String.format("market://details?id=%s", me.getPackageName())).setDescription(shareText)
 				 .build();
 				 me.uiHelper.trackPendingDialogCall(shareDialog.present());
 				 

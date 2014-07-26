@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Bunnies4Ever</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -28,7 +28,7 @@
 		<string>AppIcon76x76@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.gameera.bunniesforever</string>
+	<string>com.gameera.bunniesf1</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

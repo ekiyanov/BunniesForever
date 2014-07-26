@@ -37,6 +37,8 @@ void MenuGameover::onEnter()
 {
     Layer::onEnter();
     
+    significantEvent();
+    
     int last=Profile::getInstance()->intForKey("lastscore");
     int top=Profile::getInstance()->intForKey("topscore");
     
@@ -51,6 +53,9 @@ void MenuGameover::onEnter()
     
     if (last>top)
     {
+//        if (last>top)
+            _menu->setPositionY(-getContentSize().height/2);
+        
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Win.mp3");
         top=last;
         Profile::getInstance()->setIntForKey(top, "topscore");
@@ -64,11 +69,17 @@ void MenuGameover::onEnter()
                       char lastScore[64];sprintf(lastScore, "  TOP: %i", last);
                       topScoreLbl->setString(lastScore);
                       topScoreLbl->runAction(EaseElasticOut::create(ScaleTo::create(0.5, 1), 0.25));
+                      
+                      _menu->runAction(EaseElasticOut::create(MoveTo::create(2, Point(getContentSize().width/2,
+                                                                                      getContentSize().height/2)), 1));
                   }),
                                    NULL)
                   );
     }else
     {
+        _menu->runAction(EaseElasticOut::create(MoveTo::create(2, Point(getContentSize().width/2,
+                                                                        getContentSize().height/2)), 1));
+        
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Lose.wav");
     }
 
@@ -102,9 +113,9 @@ bool MenuGameover::init()
     score->setAnchorPoint(Point(0,0));
     score2->setAnchorPoint(Point(0,0));
     
-    score->setPosition(Point(getContentSize().width*0.2,
+    score->setPosition(Point(getContentSize().width*0.2+PPIntForKey("scorex"),
                              getContentSize().height*0.75));
-    score2->setPosition(Point(getContentSize().width*0.2,
+    score2->setPosition(Point(getContentSize().width*0.2+PPIntForKey("scorex"),
                              getContentSize().height*0.75-PPIntForKey("fontsize")*0.8));
     
     
@@ -116,7 +127,7 @@ bool MenuGameover::init()
                              getContentSize().height*0.9));
     
     Scale9Sprite * btnBg = Scale9Sprite::create("sq100.png");
-    btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+    btnBg->setContentSize(Size(getContentSize().width*0.35,getContentSize().height*0.1));
     
     {
         Label* lbl = Label::createWithTTF("SHARE", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
@@ -144,8 +155,25 @@ bool MenuGameover::init()
                                                       
                                                   });
     
+    
     btnBg = Scale9Sprite::create("sq100.png");
-    btnBg->setContentSize(Size(getContentSize().width*0.5,getContentSize().height*0.1));
+    btnBg->setContentSize(Size(getContentSize().width*0.35,getContentSize().height*0.1));
+    
+    {
+        Label* lbl = Label::createWithTTF("RATE", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
+        lbl->setPosition(Point(btnBg->getContentSize().width/2,
+                               btnBg->getContentSize().height/2));
+        btnBg->addChild(lbl);
+        btnBg->setColor(Color3B(11,197,243));
+    }
+    
+    MenuItemLabel* rate = MenuItemLabel::create(btnBg,
+                                                 [this](Ref*){
+                                                     rateus();
+                                                 });
+    
+    btnBg = Scale9Sprite::create("sq100.png");
+    btnBg->setContentSize(Size(getContentSize().width*7+10,getContentSize().height*0.1));
     
     {
         Label* lbl = Label::createWithTTF("RESTART", "fonts/victor-pixel.ttf", PPIntForKey("fontsize"));
@@ -163,11 +191,19 @@ bool MenuGameover::init()
     
     Menu* menu = Menu::create();
     menu->addChild(share);
+    menu->addChild(rate);
     menu->addChild(restart);
     
-    menu->alignItemsVerticallyWithPadding(getContentSize().height*0.02);
+    Point pt=Point::ZERO;
+    
+    share->setPosition(pt.x-share->getContentSize().width/2-5,pt.y+5+share->getContentSize().height/2);
+    rate->setPosition(pt.x+rate->getContentSize().width/2+5,pt.y+5+rate->getContentSize().height/2);
+    restart->setPosition(pt.x,pt.y-5-restart->getContentSize().height/2);
     
     addChild(menu);
+    
+    _menu=menu;
+
     
     return true;
 }

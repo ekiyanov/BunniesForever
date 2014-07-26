@@ -12,5 +12,7 @@
 extern void showAd();
 extern void hideAd();
 extern void shareFBText(std::string text);
+extern void significantEvent();
+extern void rateus();
 
 #endif
