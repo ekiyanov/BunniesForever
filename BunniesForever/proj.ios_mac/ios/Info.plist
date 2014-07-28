@@ -8,8 +8,6 @@
 	<string>Bunnies4Ever</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon-57.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>AppIcon29x29.png</string>

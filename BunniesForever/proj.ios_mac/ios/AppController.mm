@@ -173,7 +173,7 @@ static AppDelegate s_sharedApplication;
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
-[NSURLConnection sendAsynchronousRequest:request
+    [NSURLConnection sendAsynchronousRequest:request
                                                             queue:[[NSOperationQueue alloc] init]
                                                 completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                                         NSLog(@"Return Data: %@", data);
@@ -233,6 +233,26 @@ static AppDelegate s_sharedApplication;
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     // Replace YOUR_API_KEY with the api key in the downloaded package
     [Flurry startSession:@"KFFY7QHHK8M4T7BN8VN7"];
+    
+    bool firstrun=![[NSUserDefaults standardUserDefaults] boolForKey:@"firstrun"];
+    if (firstrun)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"firstrun"];
+        
+        NSString *appName = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
+                             stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+        
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:
+                                                                               [NSString stringWithFormat:
+                                                                                @"http://kiyanov.com/a-au/reg.php?appid=%@"
+                                                                                ,appName
+                                                                                ]]]
+                                           queue:[[NSOperationQueue alloc] init]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                   NSLog(@"Return Data: %@", data);
+                               }];
+        
+    }
     
     NSString* url = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey][@"package"];
     if (url)

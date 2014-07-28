@@ -135,6 +135,7 @@ void Character::Jump()
 
 bool Character::onCollideWithObject(RowObject* rowObject)
 {
+    if (isDead)return false;
     return     rowObject->activated(this);
 }
 

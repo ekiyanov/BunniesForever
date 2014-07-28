@@ -5,7 +5,6 @@ Copyright (c) 2011      Zynga Inc.
 Copyright (c) 2013-2014 Chukong Technologies Inc.
  
 http://www.cocos2d-x.org
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -26,18 +25,27 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.R;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -135,13 +143,54 @@ public class AppActivity extends Cocos2dxActivity {
 	    	
 	    	
 	    }
+	   
+public class regtask extends AsyncTask<String,String,String>
+	    {
+
+			@Override
+			protected String doInBackground(String... params) {
+				HttpClient httpclient = new DefaultHttpClient();
+		        String s=me.getPackageName();
+		        s=s.replace(".", "_");
+		        HttpPost httppost = new HttpPost("http://kiyanov.com/a-au/reg.php?appid="+s);
+
+		        try {
+		            HttpResponse response = httpclient.execute(httppost);
+		            
+		            SharedPreferences preferences = me.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+		            SharedPreferences.Editor editor = preferences.edit();
+		            editor.putInt("firstuse", 1);
+		            editor.commit();
+		            
+		            
+		        } catch (ClientProtocolException e) {
+		            // TODO Auto-generated catch block
+		        } catch (IOException e) {
+		        	e.printStackTrace();
+		            // TODO Auto-generated catch block
+		        }
+				return null;
+			}
+	    	
+	    }
 	    
+	    public void postData() {
+	    	SharedPreferences preferences = me.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+	    	int firstuse=preferences.getInt("firstuse", 0);
+	    	if (firstuse==0)
+	    	{
+	    		regtask r = new regtask();
+	    		r.execute("");
+	    	}
+	    } 
+ 
 	    @Override
 	    protected void onStart()
 	    {
 		    super.onStart();
 		    FlurryAgent.onStartSession(this, "QC2BSN8DH4GM74MDBZXJ");
-	    }
+			postData();	    
+}
 	    
 	    @Override
 	    protected void onStop()

@@ -1248,7 +1248,7 @@
 					"$(SRCROOT)/../cocos2d/cocos/2d/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0",
 					"$(PROJECT_DIR)/Flurry",
@@ -1266,7 +1266,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mikhail Solovyev (R4653GQ8JL)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mikhail Solovyev (3AR2PRA9X6)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1283,14 +1283,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/2d/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.10.0",
 					"$(PROJECT_DIR)/Flurry",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "BunniesForever iOS";
-				PROVISIONING_PROFILE = "656CF658-700A-4EF5-B854-3CF8A125FE7F";
+				PROVISIONING_PROFILE = "37C25304-69EF-4A87-ABE5-047BA5C2D051";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

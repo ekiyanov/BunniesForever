@@ -43,12 +43,13 @@
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/classes/org/cocos2dx/cpp/AppActivity$7.class \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/classes/org/cocos2dx/cpp/AppActivity$8.class \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/classes/org/cocos2dx/cpp/AppActivity$9.class \
+/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/classes/org/cocos2dx/cpp/AppActivity$regtask.class \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/classes/org/cocos2dx/cpp/AppActivity.class \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/classes-cf88e860f44f48102eb3f8d54c4e826f.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/classes-fbdac6dcc6a897fa30c60fccfd777b9c.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/classes-b73a80b19bc6640991a0e17fd87b301e.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/bolts-e2565afdc6b499dbfb733e5f6dceb1f9.jar \
-/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/annotations-0d5df3f45b541204739c3b9ab943985b.jar \
+/Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/annotations-21806f5f56cf3eff932d49df6d935611.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/FlurryAnalytics-4.1.0-a2512b99c1162323699efcc7ed92265d.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/google-play-services-8398f0d79695f63b4040df71d2f07ef7.jar \
 /Users/EKiyanov/Documents/BunniesForever/BunniesForever/proj.android/bin/dexedLibs/android-support-v4-7b59a7714611a1458db9d290a08e3977.jar \

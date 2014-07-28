@@ -83,7 +83,7 @@ public:
         
         char1->doDamage(1);
         
-        return true;
+        return false;
     }
 };
 
